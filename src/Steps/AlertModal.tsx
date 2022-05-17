@@ -19,16 +19,16 @@ export const AlertModal: React.FunctionComponent<IAlertModal> = (props) => {
 
   return (
     <Modal show={props.show} onHide={handleClose}>
-      <Modal.Header><Modal.Title>Danger!</Modal.Title></Modal.Header>
+      <Modal.Header><Modal.Title>Reset TMCR Data</Modal.Title></Modal.Header>
       <Modal.Body>
-        Warning: you will lose all inputted data. Are you sure you wish to continue?
+        Warning: you will lose all selections that have been made, and will need to start over from the beginning.
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={() => props.close(false)} variant="secondary">
-          Get me out of here!
+        <Button onClick={() => props.close(false)} variant="primary">
+          I've changed my mind
         </Button>
         <Button onClick={() => props.close(true)} variant="danger">
-          Yes, I'm sure!
+          Reset my data
         </Button>
       </Modal.Footer>
     </Modal>

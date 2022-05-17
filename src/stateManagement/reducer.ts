@@ -16,8 +16,15 @@ const Reducer = (state: GlobalStateInterface, action: ActionType): any => {
       return {
         ...state, wizardStep: state.wizardStep - 1
       }
+    case 'GOTO_STEP':
+      return {
+        //...state, wizardStep: 1
+        ...state, ...action.payload
+      }
     case 'PURGE_STATE':
       return initialState;
+    case 'ADD_TMCR':
+      return state;
     default:
       return state;
 

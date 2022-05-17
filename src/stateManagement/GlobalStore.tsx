@@ -1,9 +1,20 @@
-import { createContext, ReactElement, ReactNode, useReducer } from "react";
+import { createContext, ReactElement, ReactNode, useEffect, useReducer, useRef } from "react";
 import Reducer from './reducer';
 import { ContextType, GlobalStateInterface } from './types';
 
 export function GlobalStore({ children }: { children: ReactNode }): ReactElement {
   const [globalState, dispatch] = useReducer(Reducer, initializeState());
+  const initialRenderGlobalState = useRef(true);
+
+  useEffect(() => {
+    if (initialRenderGlobalState.current) {
+      initialRenderGlobalState.current = false;
+    } else {
+      localStorage.setItem('tmcrGlobalState', JSON.stringify(globalState));
+    }
+
+  }, [globalState]);
+
   return <globalContext.Provider value={{ globalState, dispatch }}>{children}</globalContext.Provider>
 }
 
@@ -18,5 +29,6 @@ export const initialState: GlobalStateInterface = {
 }
 
 function initializeState() {
-  return initialState;
+  const fromLocalStorage = JSON.parse(localStorage.getItem('tmcrGlobalState') as string);
+  return fromLocalStorage || initialState;
 }

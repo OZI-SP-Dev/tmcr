@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Button, Container, Form, Stack, Spinner } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row, Stack, Spinner } from 'react-bootstrap';
 import './App.css';
 import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
@@ -10,6 +10,7 @@ import { FinalStep } from './Steps/FinalStep';
 import AppHeader from './components/AppHeader';
 import { globalContext } from './stateManagement/GlobalStore';
 import { AlertModal } from './Steps/AlertModal';
+import { AppLeftNav } from './components/AppLeftNav';
 
 function App() {
   const { globalState, dispatch } = useContext(globalContext);
@@ -22,7 +23,7 @@ function App() {
       dispatch({ type: 'PURGE_STATE' });
     }
   }
-      
+
   function handleSubmit(e: any) {
     if (globalState.wizardStep === 2) {
       setLoading(true);
@@ -68,34 +69,44 @@ function App() {
 
 
   return (
-      <Stack className="App" gap={2}>
-        <AppHeader />
-        <Container fluid="sm">
-          <Form onSubmit={handleSubmit}>
-            {globalState.wizardStep === 1 && <Step1 />}
-            {globalState.wizardStep === 2 && <FinalStep />}
-            <Stack direction="horizontal" gap={3}>
-              <Button className="ms-auto" type="button" disabled={isLoading || globalState.wizardStep === 1} onClick={e => dispatch({ type: 'PREV_STEP'})}>
-                Previous Step
-              </Button>
-              <Button type="submit" disabled={isLoading}>
-                {(isLoading === true && <Spinner
-                  as="span"
-                  animation="grow"
-                  size="sm"
-                  role="status"
-                  aria-hidden="true"
-                /> && "Generating Document...")
-                  || (globalState.wizardStep === 2 ? "Generate Document" : "Next Step")
-                }
-              </Button>
-              <div className="vr" />
-              <Button variant="outline-danger" type="reset" disabled={isLoading} onClick={e => handleReset(e)}>Reset</Button>
-            </Stack>
-            <AlertModal show={isChecking} close={ handleAlert } />
-          </Form>
-        </Container>
-      </Stack>
+    <Stack className="App" gap={2}>
+      <AppHeader />
+      <Container fluid="sm">
+        <Row>
+          <Col xs={3}>
+            <AppLeftNav />
+          </Col>
+          <Col>
+        <Form onSubmit={handleSubmit}>
+          {globalState.wizardStep === 1 && <Step1 />}
+          {globalState.wizardStep === 2 && <FinalStep />}
+          <Stack direction="horizontal" gap={3}>
+            <Button variant="secondary" className="ms-auto" type="button" disabled={isLoading || globalState.wizardStep === 1} onClick={e => dispatch({ type: 'PREV_STEP' })}>
+              Previous Step
+            </Button>
+            {globalState.wizardStep === 2 && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
+              Add second TMCR
+            </Button>}
+            <Button type="submit" disabled={isLoading}>
+              {(isLoading === true && <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              /> && "Generating Document...")
+                || (globalState.wizardStep === 2 ? "Generate Document" : "Next Step")
+              }
+            </Button>
+            <div className="vr" />
+            <Button variant="outline-danger" type="reset" disabled={isLoading} onClick={e => handleReset(e)}>Reset</Button>
+          </Stack>
+          <AlertModal show={isChecking} close={handleAlert} />
+        </Form>
+        </Col>
+        </Row>
+      </Container>
+    </Stack>
   );
 }
 
