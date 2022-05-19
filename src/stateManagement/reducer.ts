@@ -10,7 +10,9 @@ const Reducer = (state: GlobalStateInterface, action: ActionType): any => {
       };
     case 'NEXT_STEP':
       return {
-        ...state, wizardStep: state.wizardStep + 1
+        ...state,
+        wizardStep: state.wizardStep + 1,
+        wizardMaxStep: state.wizardStep === state.wizardMaxStep ? state.wizardMaxStep + 1 : state.wizardMaxStep
       }
     case 'PREV_STEP':
       return {

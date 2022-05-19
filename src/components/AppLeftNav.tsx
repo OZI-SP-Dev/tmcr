@@ -1,22 +1,20 @@
 import { useContext } from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { globalContext } from '../stateManagement/GlobalStore';
+import { TMCRStepNames } from '../Steps/Steps';
 import './AppLeftNav.css';
 
 export const AppLeftNav = () => {
   const { globalState, dispatch } = useContext(globalContext);
+  
+  let steps = TMCRStepNames;
 
   return (
     <div className="sidebar-sticky bg-light">
-      <h5 className="mt-5 ml-2">Jump to TMCR Section</h5>
-      <ul className="nav flex-column">
-        <li className="nav-item">
-          <a className="nav-link" onClick={e => dispatch({ type: 'GOTO_STEP', payload: { 'wizardStep': 1 } })}>Step 1</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" onClick={e => dispatch({ type: 'GOTO_STEP', payload: { 'wizardStep': 2 } })}>Final Step</a>
-        </li>
-      </ul>
+      <h5 className="mt-5">Jump to Section</h5>
+      <div className="d-grid gap-2 m-2">
+        {steps.map( (element, i) => <Button key={element} disabled={globalState.wizardMaxStep < i} variant={globalState.wizardStep===i ? "success" : globalState.wizardMaxStep >= i ? "primary" : "secondary"} className="text-start" onClick={e => dispatch({ type: 'GOTO_STEP', payload: { 'wizardStep': i } })}>{element}</Button>)}
+      </div>
     </div>
   );
 }

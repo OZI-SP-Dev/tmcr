@@ -5,8 +5,7 @@ import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
 import PizZipUtils from 'pizzip/utils/index.js';
 import { saveAs } from 'file-saver';
-import { Step1 } from './Steps/Step1';
-import { FinalStep } from './Steps/FinalStep';
+import { TMCRFinalStep, TMCRWizardSteps } from './Steps/Steps';
 import AppHeader from './components/AppHeader';
 import { globalContext } from './stateManagement/GlobalStore';
 import { AlertModal } from './Steps/AlertModal';
@@ -16,7 +15,7 @@ function App() {
   const { globalState, dispatch } = useContext(globalContext);
   const [isLoading, setLoading] = useState(false);
   const [isChecking, setChecking] = useState(false);
-
+  
   function handleAlert(accept: boolean) {
     setChecking(false);
     if (accept) {
@@ -25,7 +24,7 @@ function App() {
   }
 
   function handleSubmit(e: any) {
-    if (globalState.wizardStep === 2) {
+    if (globalState.wizardStep === TMCRFinalStep) {
       setLoading(true);
       generateDocument();
     } else {
@@ -71,20 +70,19 @@ function App() {
   return (
     <Stack className="App" gap={2}>
       <AppHeader />
-      <Container fluid="sm">
+      <Container fluid>
         <Row>
           <Col xs={3}>
             <AppLeftNav />
           </Col>
           <Col>
         <Form onSubmit={handleSubmit}>
-          {globalState.wizardStep === 1 && <Step1 />}
-          {globalState.wizardStep === 2 && <FinalStep />}
+          <TMCRWizardSteps currentStep={globalState.wizardStep} />
           <Stack direction="horizontal" gap={3}>
-            <Button variant="secondary" className="ms-auto" type="button" disabled={isLoading || globalState.wizardStep === 1} onClick={e => dispatch({ type: 'PREV_STEP' })}>
+            <Button variant="secondary" className="ms-auto" type="button" disabled={isLoading || globalState.wizardStep === 0} onClick={e => dispatch({ type: 'PREV_STEP' })}>
               Previous Step
             </Button>
-            {globalState.wizardStep === 2 && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
+            {globalState.wizardStep === TMCRFinalStep && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
               Add second TMCR
             </Button>}
             <Button type="submit" disabled={isLoading}>
@@ -95,11 +93,11 @@ function App() {
                 role="status"
                 aria-hidden="true"
               /> && "Generating Document...")
-                || (globalState.wizardStep === 2 ? "Generate Document" : "Next Step")
+                || (globalState.wizardStep === TMCRFinalStep ? "Generate Document" : "Save and Continue")
               }
             </Button>
             <div className="vr" />
-            <Button variant="outline-danger" type="reset" disabled={isLoading} onClick={e => handleReset(e)}>Reset</Button>
+            <Button variant="outline-danger" type="reset" disabled={isLoading} onClick={e => handleReset(e)}>{(globalState.wizardStep === TMCRFinalStep ? "Close and Reset" : "Reset")}</Button>
           </Stack>
           <AlertModal show={isChecking} close={handleAlert} />
         </Form>

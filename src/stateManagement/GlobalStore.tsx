@@ -25,7 +25,8 @@ export const initialState: GlobalStateInterface = {
     program_mod_system_name: "",
     type_of_tmcr: ""
   },
-  wizardStep: 1
+  wizardStep: 0,
+  wizardMaxStep: 0
 }
 
 function initializeState() {
