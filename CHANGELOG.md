@@ -8,9 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 - (Keep your changes here until you have a release version)
 
-## [0.1.0] - 2022-05-06
+## [0.1.0] - 2022-05-23
 ### Added
 - This CHANGELOG file.
+- Reset modal
+- State Management capabilities
+ - Global Store
+ - Reducer
+
+### Changed
+- Step components utilize Reducer
+
 
 ### Types of changes
 - Added for new features.
