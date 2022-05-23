@@ -5,12 +5,14 @@ import { TMSSReqs } from "./TMSSReqs";
 import { FinalStep } from "./FinalStep";
 
 export const TMCRStepNames = ["Home", "TO Info", "TO Program Requirements", "TMSS Requirements", "IETM Functionaly Requirements", "Mandatory Requirements", "Configurable Requirements", "Delivery Requirements", "Spec/Std Interface Records (SIRS)", "Attachment 1", "Attachment 2", "Review/Print"];
-export const TMCRFinalStep = 11;
+export const TMCRFinalStep = TMCRStepNames.length-1;
+const WizardSteps = [<Preface />, <TOInfo />, <TOProgramReqs />, <TMSSReqs />, , , , , , , , <FinalStep />];
+// #TODO merge step names and wizard steps into a single object
 
 export interface ITMCRWizardSteps {
   currentStep: number
 }
-const WizardSteps = [<Preface />, <TOInfo />, <TOProgramReqs />, <TMSSReqs />, , , , , , , , <FinalStep />];
+
 export const TMCRWizardSteps: React.FunctionComponent<ITMCRWizardSteps> = (props) => {
   return (
     <>

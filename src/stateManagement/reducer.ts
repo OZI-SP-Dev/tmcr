@@ -26,6 +26,7 @@ const Reducer = (state: GlobalStateInterface, action: ActionType): any => {
     case 'PURGE_STATE':
       return initialState;
     case 'ADD_TMCR':
+      // #TODO Future feature to run through wizard a second time for a 2nd TMCR 
       return state;
     default:
       return state;
