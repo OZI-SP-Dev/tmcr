@@ -23,7 +23,19 @@ export const globalContext = createContext({} as ContextType);
 export const initialState: GlobalStateInterface = {
   wizardOptions: {
     program_mod_system_name: "",
-    type_of_tmcr: ""
+    attachment: "",
+    cdrl_sequence_number: "",
+    exhibit: "",
+    rfp_contract: "",
+    clin: "",
+    tmcr_date: "",
+    contract_type: "",
+    new_revision: "",
+    tmcr_type: "",
+    toma_name: "",
+    toma_office_symbol: "",
+    toma_address: "",
+    toma_phone: ""
   },
   wizardStep: 0,
   wizardMaxStep: 0
