@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 - (Keep your changes here until you have a release version)
+### Added
+- Blank home page
+- TO Info page
+- TO Program Requirements page
+- TMSS Requirements page
 
 ## [0.1.0] - 2022-05-23
 ### Added
