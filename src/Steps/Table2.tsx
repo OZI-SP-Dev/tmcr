@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Form, Table } from "react-bootstrap";
 import { globalContext } from '../stateManagement/GlobalStore';
 
 export const Table2 = () => {
   const { globalState, dispatch } = useContext(globalContext);
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [])
   
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
