@@ -7,6 +7,8 @@ import { FinalStep } from "./FinalStep";
 
 export const TMCRStepNames = ["Home", "TO Info", "TO Program Requirements", "TMSS Requirements", "IETM Functionaly Requirements", "Mandatory Requirements", "Configurable Requirements", "Delivery Requirements", "Spec/Std Interface Records (SIRS)", "Attachment 1", "Attachment 2", "Review/Print"];
 export const TMCRFinalStep = TMCRStepNames.length-1;
+// TODO: remove ts-ignore after all steps have been created
+// @ts-ignore
 const WizardSteps = [<Preface />, <TOInfo />, <TOProgramReqs />, <TMSSReqs />, <Table2 />, , , , , , , <FinalStep />];
 // #TODO merge step names and wizard steps into a single object
 

@@ -55,31 +55,31 @@ export const Table2 = () => {
               <td>
               <Form.Control type="text"
                 aria-label={"Item " + i + " Title"}
-                value={globalState.wizardOptions["table2_title" + i]}
+                value={globalState.wizardOptions[globalState.tmcrIndex]["table2_title" + i]}
                 id={"table2_title" + i}
                 onChange={handleTextChange} />
             </td>
             <td>
               <Form.Control type="text"
                 aria-label={"Item " + i + " Specification"}
-                value={globalState.wizardOptions["table2_specification" + i]}
+                value={globalState.wizardOptions[globalState.tmcrIndex]["table2_specification" + i]}
                 id={"table2_specification" + i}
                 onChange={handleTextChange} /> 
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions["table2_change" + i]} id={"table2_change" + i} aria-label={"Item " + (i+1) + " Change"} onChange={handleClick} />
+              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_change" + i]} id={"table2_change" + i} aria-label={"Item " + (i+1) + " Change"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions["table2_revision" + i]} id={"table2_revision" + i} aria-label={"Item " + (i+1) + " Revision"} onChange={handleClick} />
+              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_revision" + i]} id={"table2_revision" + i} aria-label={"Item " + (i+1) + " Revision"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions["table2_supplement" + i]} id={"table2_supplement" + i} aria-label={"Item " + (i+1) + " Supplement"} onChange={handleClick} />
+              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_supplement" + i]} id={"table2_supplement" + i} aria-label={"Item " + (i+1) + " Supplement"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions["table2_supplemental_tm" + i]} id={"table2_supplemental_tm" + i} aria-label={"Item " + (i+1) + " Supplemental TM"} onChange={handleClick} />
+              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_supplemental_tm" + i]} id={"table2_supplemental_tm" + i} aria-label={"Item " + (i+1) + " Supplemental TM"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions["table2_source_data" + i]} id={"table2_source_data" + i} aria-label={"Item " + (i+1) + " Source Data"} onChange={handleClick} />
+              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_source_data" + i]} id={"table2_source_data" + i} aria-label={"Item " + (i+1) + " Source Data"} onChange={handleClick} />
             </td>
             </tr>
           )}

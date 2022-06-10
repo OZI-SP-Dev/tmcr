@@ -13,7 +13,7 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Name</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions.toma_name}
+            value={globalState.wizardOptions[globalState.tmcrIndex].toma_name}
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_name': e.target.value}})} />
         </Col>
       </Form.Group>
@@ -22,7 +22,7 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Office Symbol</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions.toma_office_symbol}
+            value={globalState.wizardOptions[globalState.tmcrIndex].toma_office_symbol}
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_office_symbol': e.target.value}})} />
         </Col>
       </Form.Group>
@@ -31,7 +31,7 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Address</Form.Label>
         <Col>
           <Form.Control required as="textarea"
-            value={globalState.wizardOptions.toma_address}
+            value={globalState.wizardOptions[globalState.tmcrIndex].toma_address}
             rows={3}
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_address': e.target.value}})} />
         </Col>
@@ -41,7 +41,7 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Phone Number (Commercial)</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions.toma_phone}
+            value={globalState.wizardOptions[globalState.tmcrIndex].toma_phone}
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_phone': e.target.value}})} />
         </Col>
       </Form.Group>

@@ -82,7 +82,7 @@ function App() {
             <Button variant="secondary" className="ms-auto" type="button" disabled={isLoading || globalState.wizardStep === 0} onClick={e => dispatch({ type: 'PREV_STEP' })}>
               Previous Step
             </Button>
-            {globalState.wizardStep === TMCRFinalStep && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
+            {globalState.wizardStep === TMCRFinalStep && globalState.wizardOptions.length === 1 && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
               Add second TMCR
             </Button>}
             <Button type="submit" disabled={isLoading}>

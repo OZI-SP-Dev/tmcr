@@ -3,7 +3,8 @@ import { Dispatch } from 'react';
 export interface GlobalStateInterface {
   wizardOptions: any;
   wizardStep: number;
-  wizardMaxStep: number;
+  wizardMaxStep: [number, number];
+  tmcrIndex: number;
 }
 
 export type ActionType = {
