@@ -76,7 +76,7 @@ function App() {
             <AppLeftNav />
           </Col>
           <Col>
-        <Form onSubmit={handleSubmit}>
+        <Form className="mb-3" onSubmit={handleSubmit}>
           <TMCRWizardSteps currentStep={globalState.wizardStep} />
           <Stack direction="horizontal" gap={3}>
             <Button variant="secondary" className="ms-auto" type="button" disabled={isLoading || globalState.wizardStep === 0} onClick={e => dispatch({ type: 'PREV_STEP' })}>
