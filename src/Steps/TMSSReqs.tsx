@@ -4,6 +4,9 @@ import { globalContext } from '../stateManagement/GlobalStore';
 
 export const TMSSReqs = () => {
   const { globalState, dispatch } = useContext(globalContext);
+
+  // These elements tie back into the GlobalStore.tsx file
+  // Any additions/subsractions here should also be reflected in the GlobalStore
   const TMSSReqs = [
     {
       name: "Inspection TOs (MIL-DTL-5096)",
