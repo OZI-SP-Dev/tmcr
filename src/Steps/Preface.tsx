@@ -1,8 +1,4 @@
-import { useContext } from "react";
-import { globalContext } from '../stateManagement/GlobalStore';
-
 export const Preface = () => {
-  const { dispatch } = useContext(globalContext);
   return (
     <div className="m-3">
       <h1>Welcome to the TMCR Tool</h1>

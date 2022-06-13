@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 - (Keep your changes here until you have a release version)
+
+## [0.1.3]
+### Added
+- Add second TMCR logic
+
 ## [0.1.2] - 2022-06-10
 ### Added
 - Table2 page

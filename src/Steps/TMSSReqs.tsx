@@ -210,7 +210,7 @@ export const TMSSReqs = () => {
                                 <li>
                                   <Form.Check
                                     type="checkbox"
-                                    checked={globalState.wizardOptions[submanual.id]}
+                                    checked={globalState.wizardOptions[globalState.tmcrIndex][submanual.id]}
                                     id={submanual.id}
                                     label={submanual.name}
                                     onChange={handleClick} />
@@ -222,7 +222,7 @@ export const TMSSReqs = () => {
                         :
                         <Form.Check
                           type="checkbox"
-                          checked={globalState.wizardOptions[manual.id]}
+                          checked={globalState.wizardOptions[globalState.tmcrIndex][manual.id]}
                           id={manual.id}
                           label={manual.name}
                           onChange={handleClick} />
