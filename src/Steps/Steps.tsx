@@ -10,8 +10,7 @@ import { FinalStep } from "./FinalStep";
 
 export const TMCRStepNames = ["Home", "TO Info", "TO Program Requirements", "TMSS Requirements", "IETM Functionaly Requirements", "Configurable Requirements", "Delivery Requirements", "Attachment 1", "Review/Print"];
 export const TMCRFinalStep = TMCRStepNames.length-1;
-// TODO: remove this after all steps have been created
-// eslint-disable-next-line
+
 const WizardSteps = [<Preface />, <TOInfo />, <TOProgramReqs />, <TMSSReqs />, <Table2 />, <Sec2B2 />, <Table4 />, <Attachment1Graphics />, <FinalStep />];
 // #TODO merge step names and wizard steps into a single object
 

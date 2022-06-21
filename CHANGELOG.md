@@ -10,7 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.1.3]
 ### Added
-- Add second TMCR logic
+- Logic to clear "old" wizardOptions format from localStorage
+- Second TMCR logic
+- Section II: B2 Table
+- Table 4
+- Attachment 1 Graphics
+
+### Changed
+- Generate Document button only appears on final page of double TMCR flow
+- Eliminated unneccessary step placeholders
+- Table 2 is now dynamic
 
 ## [0.1.2] - 2022-06-10
 ### Added
