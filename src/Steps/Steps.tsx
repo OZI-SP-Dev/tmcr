@@ -3,13 +3,16 @@ import { TOInfo } from "./TOInfo";
 import { TOProgramReqs } from "./TOProgramReqs";
 import { TMSSReqs } from "./TMSSReqs";
 import { Table2 } from "./Table2";
+import { Sec2B2 } from "./Sec2B2";
+import { Table4 } from "./Table4";
+import { Attachment1Graphics } from "./Attachment1Graphics";
 import { FinalStep } from "./FinalStep";
 
-export const TMCRStepNames = ["Home", "TO Info", "TO Program Requirements", "TMSS Requirements", "IETM Functionaly Requirements", "Mandatory Requirements", "Configurable Requirements", "Delivery Requirements", "Spec/Std Interface Records (SIRS)", "Attachment 1", "Attachment 2", "Review/Print"];
+export const TMCRStepNames = ["Home", "TO Info", "TO Program Requirements", "TMSS Requirements", "IETM Functionaly Requirements", "Configurable Requirements", "Delivery Requirements", "Attachment 1", "Review/Print"];
 export const TMCRFinalStep = TMCRStepNames.length-1;
-// TODO: remove ts-ignore after all steps have been created
-// @ts-ignore
-const WizardSteps = [<Preface />, <TOInfo />, <TOProgramReqs />, <TMSSReqs />, <Table2 />, , , , , , , <FinalStep />];
+// TODO: remove this after all steps have been created
+// eslint-disable-next-line
+const WizardSteps = [<Preface />, <TOInfo />, <TOProgramReqs />, <TMSSReqs />, <Table2 />, <Sec2B2 />, <Table4 />, <Attachment1Graphics />, <FinalStep />];
 // #TODO merge step names and wizard steps into a single object
 
 export interface ITMCRWizardSteps {

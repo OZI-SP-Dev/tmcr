@@ -1,27 +1,48 @@
 import { useContext, useEffect } from "react";
-import { Form, Table } from "react-bootstrap";
+import { Button, Form, Table } from "react-bootstrap";
 import { globalContext } from '../stateManagement/GlobalStore';
 
 export const Table2 = () => {
   const { globalState, dispatch } = useContext(globalContext);
   useEffect(() => {
     window.scrollTo(0,0);
+    if (!globalState.wizardOptions[globalState.tmcrIndex].table2) {
+      addRow();
+    }
   }, [])
   
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
-    let payload:any = {};
-    payload[e.target.id] = e.target.checked;
-    
-    dispatch({ type: 'MERGE_OPTION', payload});
+    let payload: any = {};
+    const payloadName = e.target.id.slice(0, e.target.id.lastIndexOf('_'));
+    const index = e.target.id.substr(e.target.id.lastIndexOf('_')+1);
+
+    payload.table2 = [...globalState.wizardOptions[globalState.tmcrIndex].table2];
+    payload.table2[index][payloadName] = (e.target.type === 'checkbox' ? e.target.checked : e.target.value);
+
+    dispatch({ type: 'MERGE_OPTION', payload });
   }
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
-    let payload:any = {};
-    payload[e.target.id] = e.target.value;
+  const addRow = () => {
+    let payload: any = {};
+    const newEntry = {
+      title: "",
+      specification: "",
+      change: false,
+      revision: false,
+      supplement: false,
+      supplementaltm: false,
+      sourcedata: false
+    };
+     
+    if (!globalState.wizardOptions[globalState.tmcrIndex].table2) {
+      payload.table2 = [];
+    } else {
+      payload.table2 = [...globalState.wizardOptions[globalState.tmcrIndex].table2];
+    }
+    payload.table2.push(newEntry);
     
-    dispatch({ type: 'MERGE_OPTION', payload});
+    dispatch({ type: 'MERGE_OPTION', payload });
   }
   
   return (
@@ -49,41 +70,48 @@ export const Table2 = () => {
           </tr>
         </thead>
         <tbody>
-        {[...Array(20)].map( (element, i) => 
-            <tr key={"table2" + i}>
-              <td>{i+1}</td>
-              <td>
+        {globalState.wizardOptions[globalState.tmcrIndex].table2?.map((element:any, i:number) =>
+          <tr key={"table2_"+i}>
+            <td>{i+1}</td>
+            <td>
               <Form.Control type="text"
                 aria-label={"Item " + i + " Title"}
-                value={globalState.wizardOptions[globalState.tmcrIndex]["table2_title" + i]}
-                id={"table2_title" + i}
-                onChange={handleTextChange} />
+                value={element.title}
+                id={"title_" + i}
+                onChange={handleClick} />
             </td>
             <td>
               <Form.Control type="text"
                 aria-label={"Item " + i + " Specification"}
-                value={globalState.wizardOptions[globalState.tmcrIndex]["table2_specification" + i]}
-                id={"table2_specification" + i}
-                onChange={handleTextChange} /> 
+                value={element.specification}
+                id={"specification_" + i}
+                onChange={handleClick} /> 
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_change" + i]} id={"table2_change" + i} aria-label={"Item " + (i+1) + " Change"} onChange={handleClick} />
+              <Form.Check type="switch" checked={element.change} id={"change_" + i} aria-label={"Item " + (i+1) + " Change"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_revision" + i]} id={"table2_revision" + i} aria-label={"Item " + (i+1) + " Revision"} onChange={handleClick} />
+              <Form.Check type="switch" checked={element.revision} id={"revision_" + i} aria-label={"Item " + (i+1) + " Revision"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_supplement" + i]} id={"table2_supplement" + i} aria-label={"Item " + (i+1) + " Supplement"} onChange={handleClick} />
+              <Form.Check type="switch" checked={element.supplement} id={"supplement_" + i} aria-label={"Item " + (i+1) + " Supplement"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_supplemental_tm" + i]} id={"table2_supplemental_tm" + i} aria-label={"Item " + (i+1) + " Supplemental TM"} onChange={handleClick} />
+              <Form.Check type="switch" checked={element.supplementaltm} id={"supplementaltm_" + i} aria-label={"Item " + (i+1) + " Supplemental TM"} onChange={handleClick} />
             </td>
             <td>
-              <Form.Check type="switch" checked={globalState.wizardOptions[globalState.tmcrIndex]["table2_source_data" + i]} id={"table2_source_data" + i} aria-label={"Item " + (i+1) + " Source Data"} onChange={handleClick} />
+              <Form.Check type="switch" checked={element.sourcedata} id={"sourcedata_" + i} aria-label={"Item " + (i+1) + " Source Data"} onChange={handleClick} />
             </td>
             </tr>
           )}
         </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={8} className="text-end">
+              <Button variant="outline-primary" onClick={addRow}>Add row</Button>
+            </td>
+          </tr>
+        </tfoot>
       </Table>
     </div>
   );

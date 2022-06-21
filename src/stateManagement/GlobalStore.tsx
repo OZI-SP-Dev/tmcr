@@ -119,7 +119,25 @@ export const initialState: GlobalStateInterface = {
   tmcrIndex: 0
 }
 
+/* 
+// Changed the format of the object saved in the global store
+// That object gets stringified and saved to local storage
+// Below we import that object from local storage
+// Old object is no longer compatible with our app
+// Check for and clear local storage if old format
+*/
+
+const isOldFormat = (fls: any) => {
+  return !Array.isArray(fls.wizardOptions);
+}
+
 function initializeState() {
-  const fromLocalStorage = JSON.parse(localStorage.getItem('tmcrGlobalState') as string);
+  let fromLocalStorage = JSON.parse(localStorage.getItem('tmcrGlobalState') as string);
+  if (fromLocalStorage && isOldFormat(fromLocalStorage)) {
+    console.log("Old state object format detected, removing..")
+    localStorage.removeItem('tmcrGlobalState');
+    fromLocalStorage = null;
+  }
   return fromLocalStorage || initialState;
 }
+
