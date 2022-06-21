@@ -9,7 +9,7 @@ export const Table2 = () => {
     if (!globalState.wizardOptions[globalState.tmcrIndex].table2) {
       addRow();
     }
-  }, [])
+  })
   
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes

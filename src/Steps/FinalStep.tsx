@@ -1,9 +1,8 @@
 import { useContext } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
 import { globalContext } from '../stateManagement/GlobalStore';
 
 export const FinalStep = () => {
-  const { globalState, dispatch } = useContext(globalContext);
+  const { globalState } = useContext(globalContext);
   return (
     <div className="m-3">
       <h1>TMCR Template Steps Complete</h1>

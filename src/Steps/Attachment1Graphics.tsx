@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Col, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { globalContext } from '../stateManagement/GlobalStore';
 
 export const Attachment1Graphics = () => {
