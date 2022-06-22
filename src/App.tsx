@@ -85,8 +85,7 @@ function App() {
             {globalState.wizardStep === TMCRFinalStep && globalState.wizardOptions.length === 1 && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
               Add second TMCR
             </Button>}
-            {(globalState.wizardStep !== TMCRFinalStep || (globalState.wizardOptions.length === 1 || (globalState.wizardOptions.length === 2 && globalState.tmcrIndex === 1))) && 
-            <Button type="submit" disabled={isLoading}>
+            { !(globalState.wizardOptions.length === 2 && globalState.wizardStep === TMCRFinalStep && globalState.tmcrIndex === 0) && <Button type="submit" disabled={isLoading}>
               {(isLoading === true && <Spinner
                 as="span"
                 animation="grow"

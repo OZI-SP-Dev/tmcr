@@ -5,7 +5,6 @@ import { globalContext } from '../stateManagement/GlobalStore';
 export const Table2 = () => {
   const { globalState, dispatch } = useContext(globalContext);
   useEffect(() => {
-    window.scrollTo(0,0);
     if (!globalState.wizardOptions[globalState.tmcrIndex].table2) {
       addRow();
     }
