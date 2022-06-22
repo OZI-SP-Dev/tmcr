@@ -85,7 +85,7 @@ function App() {
             {globalState.wizardStep === TMCRFinalStep && globalState.wizardOptions.length === 1 && <Button type="button" onClick={e => dispatch({ type: 'ADD_TMCR' })}>
               Add second TMCR
             </Button>}
-            <Button type="submit" disabled={isLoading}>
+            { !(globalState.wizardOptions.length === 2 && globalState.wizardStep === TMCRFinalStep && globalState.tmcrIndex === 0) && <Button type="submit" disabled={isLoading}>
               {(isLoading === true && <Spinner
                 as="span"
                 animation="grow"
@@ -95,7 +95,7 @@ function App() {
               /> && "Generating Document...")
                 || (globalState.wizardStep === TMCRFinalStep ? "Generate Document" : "Save and Continue")
               }
-            </Button>
+            </Button>}
             <div className="vr" />
             <Button variant="outline-danger" type="reset" disabled={isLoading} onClick={e => handleReset(e)}>{(globalState.wizardStep === TMCRFinalStep ? "Close and Reset" : "Reset")}</Button>
           </Stack>
