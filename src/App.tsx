@@ -42,7 +42,7 @@ function App() {
     console.log("generating document...");
     console.log(globalState)
     PizZipUtils.getBinaryContent(
-      '.\\S1000D_Linear Combined_Review.docx',
+      '.\\TMCR_Template.docx',
       function (error: any, content: any) {
         if (error) {
           throw error;
@@ -54,13 +54,13 @@ function App() {
         });
 
         // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
-        doc.render(globalState.wizardOptions);
+        doc.render(globalState);
         const out = doc.getZip().generate({
           type: "blob",
           mimeType:
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         }); //Output the document using Data-URI
-        saveAs(out, globalState.wizardOptions.program_mod_system_name + "_template.docx");
+        saveAs(out, globalState.wizardOptions[0].program_mod_system_name + "_template.docx");
         setLoading(false);
       }
     );
