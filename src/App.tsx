@@ -4,12 +4,33 @@ import './App.css';
 import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
 import PizZipUtils from 'pizzip/utils/index.js';
+import expressions from 'angular-expressions';
 import { saveAs } from 'file-saver';
 import { TMCRFinalStep, TMCRWizardSteps } from './Steps/Steps';
 import AppHeader from './components/AppHeader';
 import { globalContext } from './stateManagement/GlobalStore';
 import { AlertModal } from './Steps/AlertModal';
 import { AppLeftNav } from './components/AppLeftNav';
+
+function angularParser(tag: any) {
+  tag = tag
+    .replace(/^\.$/, "this")
+    .replace(/('|')/g, "'")
+    .replace(/("|")/g, '"');
+  const expr = expressions.compile(tag);
+  return {
+    get: function (scope: any, context: any) {
+      let obj = {};
+      const scopeList = context.scopeList;
+      const num = context.num;
+      for (let i = 0, len = num + 1; i < len; i++)
+      {
+        obj = Object.assign(obj, scopeList[i]);
+      }
+      return expr(scope, obj);
+    },
+  };
+}
 
 function App() {
   const { globalState, dispatch } = useContext(globalContext);
@@ -51,6 +72,7 @@ function App() {
         const doc = new Docxtemplater(zip, {
           paragraphLoop: true,
           linebreaks: true,
+          parser: angularParser
         });
 
         // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)

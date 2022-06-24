@@ -11,170 +11,170 @@ export const TMSSReqs = () => {
     {
       name: "Inspection TOs (MIL-DTL-5096)",
       manuals: [
-        { name: "Inspection and Maintenance Requirements (-6) Manual", id: "tmss-1-a" },
-        { name: "Acceptance and Functional Check Flight (FCF) Procedures (-6CF) Manual", id: "tmss-1-b" },
-        { name: "Acceptance and Functional Check Flight (-6CL) Checklist", id: "tmss-1-c" },
-        { name: "Inspection Workcards (-6WC)", id: "tmss-1-d" },
-        { name: "Maintenance/Operations Checklists", id: "tmss-1-e" }
+        { name: "Inspection and Maintenance Requirements (-6) Manual", id: "tmss_1_a" },
+        { name: "Acceptance and Functional Check Flight (FCF) Procedures (-6CF) Manual", id: "tmss_1_b" },
+        { name: "Acceptance and Functional Check Flight (-6CL) Checklist", id: "tmss_1_c" },
+        { name: "Inspection Workcards (-6WC)", id: "tmss_1_d" },
+        { name: "Maintenance/Operations Checklists", id: "tmss_1_e" }
       ]
     },
     {
       name: "Cargo Aircraft Loading and Offloading TOs (MIL-DTL-5288)",
       manuals: [
-        { name: "Loading Instructions Manual", id: "tmss-2-a" },
-        { name: "Nuclear Weapon Cargo Loading Manual", id: "tmss-2-b" },
-        { name: "Checklists", id: "tmss-2-c" }
+        { name: "Loading Instructions Manual", id: "tmss2_a" },
+        { name: "Nuclear Weapon Cargo Loading Manual", id: "tmss_2_b" },
+        { name: "Checklists", id: "tmss_2_c" }
       ]
     },
     {
       name: "Weight and Balance (Aircraft) (MIL-DTL-5920)",
       manuals: [
-        { name: "Loading Data Manual", id: "tmss-3-a" },
-        { name: "Sample Basic Weight Checklists", id: "tmss-3-b" },
+        { name: "Loading Data Manual", id: "tmss_3_a" },
+        { name: "Sample Basic Weight Checklists", id: "tmss_3_b" },
       ]
     },
     {
       name: "Flight Manuals (MIL-DTL-7700)",
       manuals: [
-        { name: "Flight Manual", id: "tmss-4-a" },
-        { name: "Performance Data Manual", id: "tmss-4-b" },
-        { name: "Mission Crew Manual", id: "tmss-4-c" },
-        { name: "Supplemental Manual", id: "tmss-4-d" },
-        { name: "Abbreviated Flight Crew Checklist", id: "tmss-4-e" }
+        { name: "Flight Manual", id: "tmss_4_a" },
+        { name: "Performance Data Manual", id: "tmss_4_b" },
+        { name: "Mission Crew Manual", id: "tmss_4_c" },
+        { name: "Supplemental Manual", id: "tmss_4_d" },
+        { name: "Abbreviated Flight Crew Checklist", id: "tmss_4_e" }
       ]
     },
     {
       name: "List of Applicable Publications (MIL-DTL-8031)",
       manuals: [
-        { name: "List of Applicable Publications", id: "tmss-5-a" }
+        { name: "List of Applicable Publications", id: "tmss_5_a" }
       ]
     },
     {
       name: "Structural Repair Manuals (for Aircraft) (MIL-DTL-9854)",
       manuals: [
-        { name: "Structural Repair Manuals (for Aircraft)", id: "tmss-6-a" }
+        { name: "Structural Repair Manuals (for Aircraft)", id: "tmss_6_a" }
       ]
     },
     {
       name: "Munitions/Weapons Loading Procedures, Non- nuclear and Nuclear TOs (MIL-DTL-9977)",
       manuals: [
-        { name: "Nuclear Weapons Basic Information and Loading Procedures", id: "tmss-7-a" },
-        { name: "Nuclear Weapons Loading Procedures", id: "tmss-7-b" },
-        { name: "Non-nuclear Munitions Basic Information", id: "tmss-7-c" },
-        { name: "Non-nuclear Loading Procedures", id: "tmss-7-d" },
-        { name: "Non-nuclear Munitions Loading Standard Data Packages (SDPs)", id: "tmss-7-e" },
-        { name: "Loading Procedures Checklist", id: "tmss-7-f" },
-        { name: "Single Loading Procedures Checklist", id: "tmss-7-g" },
-        { name: "Integrated Loading Procedures Checklists", id: "tmss-7-h" },
-        { name: "Family Group Loading Procedures Checklist", id: "tmss-7-i" },
-        { name: "Nuclear Weapons Loading Procedure Checklists", id: "tmss-7-j" },
-        { name: "Functional Check Procedures Checklist", id: "tmss-7-k" },
-        { name: "NATO Stage B Cross-Servicing Checklists", id: "tmss-7-l" },
-        { name: "End of Runway (EOR) Procedures Checklist", id: "tmss-7-m" }
+        { name: "Nuclear Weapons Basic Information and Loading Procedures", id: "tmss_7_a" },
+        { name: "Nuclear Weapons Loading Procedures", id: "tmss_7_b" },
+        { name: "Non-nuclear Munitions Basic Information", id: "tmss_7_c" },
+        { name: "Non-nuclear Loading Procedures", id: "tmss_7_d" },
+        { name: "Non-nuclear Munitions Loading Standard Data Packages (SDPs)", id: "tmss_7_e" },
+        { name: "Loading Procedures Checklist", id: "tmss_7_f" },
+        { name: "Single Loading Procedures Checklist", id: "tmss_7_g" },
+        { name: "Integrated Loading Procedures Checklists", id: "tmss_7_h" },
+        { name: "Family Group Loading Procedures Checklist", id: "tmss_7_i" },
+        { name: "Nuclear Weapons Loading Procedure Checklists", id: "tmss_7_j" },
+        { name: "Functional Check Procedures Checklist", id: "tmss_7_k" },
+        { name: "NATO Stage B Cross-Servicing Checklists", id: "tmss_7_l" },
+        { name: "End of Runway (EOR) Procedures Checklist", id: "tmss_7_m" }
       ]
     },
     {
       name: "Space Operations and Support Documentation TOs (MIL-PRF-38311)",
       manuals: [
-        { name: "MIL-SPEC (Intercontinental Ballistic Missiles)", id: "tmss-8-a" }
+        { name: "MIL-SPEC (Intercontinental Ballistic Missiles)", id: "tmss_8_a" }
       ]
     },
     {
       name: "Nuclear and Non-nuclear Weapon Delivery and Aircrew Procedures Manuals and Checklists (MIL-DTL-38384)",
       manuals: [
-        { name: "Non-nuclear Weapon Delivery Manual", id: "tmss-9-a" },
-        { name: "Aircrew Nuclear Bomb Delivery Manual (Strategic Bomber Aircraft)", id: "tmss-9-b" },
-        { name: "Aircrew Nuclear Missile Delivery Manual (Strategic Bomber Aircraft)", id: "tmss-9-c" },
-        { name: "Aircrew Nuclear Bomb Delivery Manual (Tactical Aircraft)", id: "tmss-9-d" },
-        { name: "Non-nuclear Weapon Delivery Checklist", id: "tmss-9-e" },
-        { name: "Nuclear Weapon Delivery Checklist (Strategic Bomber Aircraft))", id: "tmss-9-f" },
-        { name: "Aircrew Nuclear Bomb Delivery Checklist (Tactical Aircraft)", id: "tmss-9-g" },
-        { name: "Non-nuclear Weapon Delivery Source Data Packages", id: "tmss-9-h" }
+        { name: "Non-nuclear Weapon Delivery Manual", id: "tmss_9_a" },
+        { name: "Aircrew Nuclear Bomb Delivery Manual (Strategic Bomber Aircraft)", id: "tmss_9_b" },
+        { name: "Aircrew Nuclear Missile Delivery Manual (Strategic Bomber Aircraft)", id: "tmss_9_c" },
+        { name: "Aircrew Nuclear Bomb Delivery Manual (Tactical Aircraft)", id: "tmss_9_d" },
+        { name: "Non-nuclear Weapon Delivery Checklist", id: "tmss_9_e" },
+        { name: "Nuclear Weapon Delivery Checklist (Strategic Bomber Aircraft))", id: "tmss_9_f" },
+        { name: "Aircrew Nuclear Bomb Delivery Checklist (Tactical Aircraft)", id: "tmss_9_g" },
+        { name: "Non-nuclear Weapon Delivery Source Data Packages", id: "tmss_9_h" }
       ]
     },
     {
       name: "Work Unit Code Manual (MIL-DTL-38769)",
       manuals: [
-        { name: "Standard WUC Manual", id: "tmss-10-a" },
-        { name: "Two Chapter Manual", id: "tmss-10-b" },
-        { name: "Three Chapter Manual", id: "tmss-10-c" }
+        { name: "Standard WUC Manual", id: "tmss_10_a" },
+        { name: "Two Chapter Manual", id: "tmss_10_b" },
+        { name: "Three Chapter Manual", id: "tmss_10_c" }
       ]
     },
     {
       name: "Calibration Procedures (MIL-PRF-38793)",
       manuals: [
-        { name: "Calibration Procedures", id: "tmss-11-a" }
+        { name: "Calibration Procedures", id: "tmss_11_a" }
       ]
     },
     {
       name: "Time Compliance Technical Orders (TCTOs) (MIL-PRF-38311)",
       manuals: [
-        { name: "TCTO", id: "tmss-12-a" },
-        { name: "TCTO Supplement", id: "tmss-12-b" }
+        { name: "TCTO", id: "tmss_12_a" },
+        { name: "TCTO Supplement", id: "tmss_12_b" }
       ]
     },
     {
       name: "Aircraft Battle Damage Assessment and Repair TOs (MIL-DTL-87158)",
       manuals: [
-        { name: "Aircraft Battle Damage Assessment and Repair TOs", id: "tmss-13-a" }
+        { name: "Aircraft Battle Damage Assessment and Repair TOs", id: "tmss_13_a" }
       ]
     },
     {
       name: "Illustrated Parts Breakdown (MIL-DTL-38807)",
       manuals: [
-        { name: "Illustrated Parts Breakdown", id: "tmss-14-a" }
+        { name: "Illustrated Parts Breakdown", id: "tmss_14_a" }
       ]
     },
     {
       name: "On-Equipment Organizational Maintenance Manual Set (MIL-DTL-83495)",
       manuals: [
-        { name: "General Equipment (GE) Manual", id: "tmss-15-a" },
-        { name: "General System (GS) Manuals", id: "tmss-15-b" },
-        { name: "Combined GE &amp; GS Manual", id: "tmss-15-c" },
-        { name: "Job Guide (JG) Manuals", id: "tmss-15-d" },
-        { name: "Fault Reporting (FR) Manual", id: "tmss-15-e" },
-        { name: "Fault Isolation (FI) Manual", id: "tmss-15-f" },
-        { name: "Wiring Data (WD) Manual", id: "tmss-15-g" },
-        { name: "Schematic Diagram (SD) Manual", id: "tmss-15-h" }
+        { name: "General Equipment (GE) Manual", id: "tmss_15_a" },
+        { name: "General System (GS) Manuals", id: "tmss_15_b" },
+        { name: "Combined GE &amp; GS Manual", id: "tmss_15_c" },
+        { name: "Job Guide (JG) Manuals", id: "tmss_15_d" },
+        { name: "Fault Reporting (FR) Manual", id: "tmss_15_e" },
+        { name: "Fault Isolation (FI) Manual", id: "tmss_15_f" },
+        { name: "Wiring Data (WD) Manual", id: "tmss_15_g" },
+        { name: "Schematic Diagram (SD) Manual", id: "tmss_15_h" }
       ]
     },
     {
       name: "Operation and Maintenance Instructions in Work Package Format (MIL-DTL-87929)",
       manuals: [
         {
-          name: "Maintenance Manuals", id: "tmss-16-a",
+          name: "Maintenance Manuals", id: "tmss_16_a",
           manuals: [
-            { name: "Organizational Maintenance", id: "tmss-16-a-1" },
-            { name: "Intermediate Maintenance", id: "tmss-16-a-2" },
-            { name: "Depot Maintenance", id: "tmss-16-a-3" },
-            { name: "Combined (I&amp;D) Maintenance", id: "tmss-16-a-4" },
-            { name: "On Condition Maintenance", id: "tmss-16-a-5" }
+            { name: "Organizational Maintenance", id: "tmss_16_a_1" },
+            { name: "Intermediate Maintenance", id: "tmss_16_a_2" },
+            { name: "Depot Maintenance", id: "tmss_16_a_3" },
+            { name: "Combined (I&amp;D) Maintenance", id: "tmss_16_a_4" },
+            { name: "On Condition Maintenance", id: "tmss_16_a_5" }
           ]
         },
-        { name: "Operation & Maintenance Instruction Manuals", id: "tmss-16-b" },
+        { name: "Operation & Maintenance Instruction Manuals", id: "tmss_16_b" },
         {
-          name: "Special Manuals", id: "tmss-16-c",
+          name: "Special Manuals", id: "tmss_16_c",
           manuals: [
-            { name: "Aircraft Engine Testing and Trending Procedures", id: "tmss-16-c-1" },
-            { name: "Intermediate Maintenance", id: "tmss-16-c-2" },
-            { name: "Static Firing of Missile Motors", id: "tmss-16-c-3" },
-            { name: "System Peculiar Corrosion Control", id: "tmss-16-c-4" },
-            { name: "Nondestructive Inspection (NDI)", id: "tmss-16-c-5" },
-            { name: "Aircraft Structural Integrity Program (ASIP)", id: "tmss-16-c-6" },
-            { name: "ATE Operator Test Procedures", id: "tmss-16-c-7" },
-            { name: "Special Requirements for Storage and Maintenance Procedures; AUR Munitions/Launchers and Associated Support Equipment, Conventional Components and CMBR Agents", id: "tmss-16-c-8" },
-            { name: "Parachute Packing Procedures", id: "tmss-16-c-9" },
-            { name: "Operators Instructions (Hand‑Held Flight Computers)", id: "tmss-16-c-10" },
-            { name: "Installation‑Engineering Facility (Ground C-E Equipment)", id: "tmss-16-c-11" }
+            { name: "Aircraft Engine Testing and Trending Procedures", id: "tmss_16_c_1" },
+            { name: "Intermediate Maintenance", id: "tmss_16_c_2" },
+            { name: "Static Firing of Missile Motors", id: "tmss_16_c_3" },
+            { name: "System Peculiar Corrosion Control", id: "tmss_16_c_4" },
+            { name: "Nondestructive Inspection (NDI)", id: "tmss_16_c_5" },
+            { name: "Aircraft Structural Integrity Program (ASIP)", id: "tmss_16_c_6" },
+            { name: "ATE Operator Test Procedures", id: "tmss_16_c_7" },
+            { name: "Special Requirements for Storage and Maintenance Procedures; AUR Munitions/Launchers and Associated Support Equipment, Conventional Components and CMBR Agents", id: "tmss_16_c_8" },
+            { name: "Parachute Packing Procedures", id: "tmss_16_c_9" },
+            { name: "Operators Instructions (Hand‑Held Flight Computers)", id: "tmss_16_c_10" },
+            { name: "Installation‑Engineering Facility (Ground C-E Equipment)", id: "tmss_16_c_11" }
           ]
         },
-        { name: "With Illustrated Parts Breakdown", id: "tmss-16-d" },
+        { name: "With Illustrated Parts Breakdown", id: "tmss_16_d" },
       ]
     },
     {
       name: "Aircraft Cross-servicing Guide (MIL-DTL-22202)",
       manuals: [
-        { name: "Aircraft Cross-servicing Guide", id: "tmss-17-a" }
+        { name: "Aircraft Cross-servicing Guide", id: "tmss_17_a" }
       ]
     }
   ];
