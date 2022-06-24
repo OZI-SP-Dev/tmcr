@@ -5,8 +5,19 @@ import { globalContext } from '../stateManagement/GlobalStore';
 export const Table4 = () => {
   const { globalState, dispatch } = useContext(globalContext);
   useEffect(() => {
+    let pdr_days: number | undefined = globalState.wizardOptions[globalState.tmcrIndex].pdr_days;
+    if (pdr_days === undefined) {
+      const payload: any = {
+        pdr_days: 0,
+        cdr_days: 0,
+        process_review_days: 0,
+        verification_days: 0,
+        prepub_review_days: 0
+      };
+      dispatch({ type: 'MERGE_OPTION', payload});
+    }
     window.scrollTo(0, 0);
-  }, [])
+  })
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
