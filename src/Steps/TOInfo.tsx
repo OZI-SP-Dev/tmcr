@@ -14,14 +14,15 @@ export const TOInfo = () => {
         <Col>
           <Form.Control required type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].program_mod_system_name}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'program_mod_system_name': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'program_mod_system_name': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
 
       <Form.Group as={Row} className="mb-3" controlId="attachment">
         <Form.Label column sm={2}>Attachment</Form.Label>
         <Col>
-          <Form.Control required type="text"
+          <Form.Control type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].attachment}
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'attachment': e.target.value}})} />
         </Col>
@@ -39,7 +40,7 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="exhibit">
         <Form.Label column sm={2}>Exhibit</Form.Label>
         <Col>
-          <Form.Control required type="text"
+          <Form.Control type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].exhibit}
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'exhibit': e.target.value}})} />
         </Col>
@@ -50,7 +51,8 @@ export const TOInfo = () => {
         <Col>
           <Form.Control required type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].rfp_contract}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'rfp_contract': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'rfp_contract': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
 
@@ -68,7 +70,8 @@ export const TOInfo = () => {
         <Col>
           <Form.Control required type="date"
             value={globalState.wizardOptions[globalState.tmcrIndex].tmcr_date}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'tmcr_date': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'tmcr_date': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
 
@@ -77,7 +80,8 @@ export const TOInfo = () => {
         <Col>
           <Form.Select required aria-label="Contract Type"
             value={globalState.wizardOptions[globalState.tmcrIndex].contract_type}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'contract_type': e.target.value}})}>
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'contract_type': e.target.value}})}
+            disabled={globalState.tmcrIndex === 1}>
             <option></option>
             <option>Firm-Fixed-Price (FFP)</option>
             <option>Fixed-Price Economic Price Adjustment (FPEPA)</option>

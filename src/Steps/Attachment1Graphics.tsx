@@ -15,7 +15,8 @@ export const Attachment1Graphics = () => {
         "Vector based images saved as EPS will include illustrations containing both vector and raster images",
         "Any source data (photos used for tracing etc.); used in aiding of creation of EPS (templates, etc.) will be deleted from illustration prior to saving/exporting",
         "If multiple layers are used, then image is to be flattened into 1 single layer before exporting to minimize file size and reduce possible printing issues"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_eps || false)
     },
     {
       Title: "Tagged Image File Format (TIFF)",
@@ -24,7 +25,8 @@ export const Attachment1Graphics = () => {
         "Black and white raster images should only be saved as Bitmap and not Grayscale, RGB or CMYK",
         "Grayscale or Color images (screenshots, etc.) will be saved as such (Grayscale, RGB or CMYK) and will not be bitmap converted using a halftone screen",
         "To further aid in file size reduction for storage purposes, images should be compressed using Group 4 compression when saving/exporting"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_tiff || false)
     },
     {
       Title: "Computer Graphics Metafile (CGM)",
@@ -35,7 +37,8 @@ export const Attachment1Graphics = () => {
         "CGM files shall not be a mix of vector and raster images.  Vector only",
         "If multiple layers are used, then image is to be flattened into 1 single layer before exporting to minimize file size and reduce possible printing issues",
         "Unless Version 4 is specifically required for hotspots and/or hyper linking, CGMs should be exported as version 3 to increase cross platform compatibility"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_cgm || false)
     },
     {
       Title: "DWG File Format",
@@ -45,7 +48,8 @@ export const Attachment1Graphics = () => {
         "DWG files shall not be a mix of vector and raster images. Vector only",
         "Any source data used in aiding of creation of DWG (templates, etc.) will be deleted from illustration prior to saving/exporting",
         "If multiple layers are used, then image is to be flattened into 1 single layer before exporting to minimize file size and reduce possible printing issues"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_dwg || false)
     },
     {
       Title: "Joint Photographic Expert Group (JPEG)",
@@ -53,7 +57,8 @@ export const Attachment1Graphics = () => {
       Descriptions: [
         "JPEG File format should be used as last resort.  Color screenshots/photos should be saved as TIFFs due to possible system compatibility issues",
         "B&W Bitmaps should not be saved as JPEGs"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_jpg || false)
     },
     {
       Title: "Portable Network Graphics (PNG)",
@@ -61,24 +66,36 @@ export const Attachment1Graphics = () => {
       Descriptions: [
         "Used for raster graphics",
         "Supports lossless data compression"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_png || false)
     },
     {
       Title: "Bitmap (BMP)",
       ID: "graphics_bmp",
       Descriptions: [
         "Used for raster graphics"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_bmp || false)
     },
     {
       Title: "Scalable Vector Graphics (SVG)",
       ID: "graphics_svg",
       Descriptions: [
         "Two-dimensional vector and mixed vector/raster graphics"
-      ]
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_svg || false)
+    },
+    {
+      Title: "No Graphics",
+      ID: "graphics_none",
+      Descriptions: [
+        "No graphics files required"
+      ],
+      Checked: (globalState.wizardOptions[globalState.tmcrIndex].graphics_none || false)
     }
-
   ];
+
+  const isChecked = guidelines.some( item => item.Checked === true);
 
   const  handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
@@ -98,10 +115,13 @@ export const Attachment1Graphics = () => {
             <h5>
               <Form.Check
                 type="checkbox"
+                name="graphics"
                 checked={globalState.wizardOptions[globalState.tmcrIndex][element.ID] || false}
                 id={element.ID}
                 label={element.Title + ":"}
-                onChange={handleClick} />
+                onChange={handleClick}
+                required={element.ID === "graphics_none" && !isChecked}
+                />
             </h5>
             <ul>
               {element.Descriptions.map((description, index) => 
