@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 - (Keep your changes here until you have a release version)
 
+## [0.2.0] - 2022-06-28
+### Added
+- Angular expressions inside of TMCR_Template.docx
+- Attachment 1 (Graphics) now requires at least one selection
+- When creating second TMCR, some fields will be copied from the first TMCR and become read-only
+- Initialization of Table4 day controls
+
+### Changed
+- Template doc is now TMCR_Template.docx
+- All tmss-?-? identifiers are now tmss_?_?
+
 ## [0.1.3] - 2022-06-21
 ### Added
 - Logic to clear "old" wizardOptions format from localStorage
