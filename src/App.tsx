@@ -14,9 +14,7 @@ import { AppLeftNav } from './components/AppLeftNav';
 
 function angularParser(tag: any) {
   tag = tag
-    .replace(/^\.$/, "this")
-    .replace(/('|')/g, "'")
-    .replace(/("|")/g, '"');
+    .replace(/^\.$/, "this");
   const expr = expressions.compile(tag);
   return {
     get: function (scope: any, context: any) {

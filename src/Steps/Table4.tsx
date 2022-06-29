@@ -16,7 +16,6 @@ export const Table4 = () => {
       };
       dispatch({ type: 'MERGE_OPTION', payload});
     }
-    window.scrollTo(0, 0);
   })
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Col, Form } from "react-bootstrap";
 import { globalContext } from '../stateManagement/GlobalStore';
 
 export const TMSSReqs = () => {
   const { globalState, dispatch } = useContext(globalContext);
 
-  // These elements tie back into the GlobalStore.tsx file
-  // Any additions/subsractions here should also be reflected in the GlobalStore
   const TMSSReqs = [
     {
       name: "Inspection TOs (MIL-DTL-5096)",
@@ -179,6 +177,20 @@ export const TMSSReqs = () => {
     }
   ];
 
+  useEffect(() => {
+    // Check if var has been initialized, if not initialize them all
+    let tmss: boolean | undefined = globalState.wizardOptions[globalState.tmcrIndex].tmss_1_a;
+    if (tmss === undefined) {
+      let payload: any = {};
+      TMSSReqs.map(parent => 
+        parent.manuals.map(manual => 
+          manual.manuals ? 
+            manual.manuals.map(submanual => payload[submanual.id] = false):
+            payload[manual.id] = false)
+      );
+      dispatch({ type: 'MERGE_OPTION', payload});
+    }
+  })
 
   const  handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
