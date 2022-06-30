@@ -94,8 +94,7 @@ export const TOInfo = () => {
         <Col>
           <Form.Select required aria-label="Contract Type"
             value={globalState.wizardOptions[globalState.tmcrIndex].contract_type}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'contract_type': e.target.value}})}
-            disabled={globalState.tmcrIndex === 1}>
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'contract_type': e.target.value}})}>
             <option></option>
             <option>Firm-Fixed-Price (FFP)</option>
             <option>Fixed-Price Economic Price Adjustment (FPEPA)</option>
