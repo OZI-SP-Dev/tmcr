@@ -14,7 +14,8 @@ export const TOProgramReqs = () => {
         <Col>
           <Form.Control required type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].toma_name}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_name': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_name': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
 
@@ -23,7 +24,8 @@ export const TOProgramReqs = () => {
         <Col>
           <Form.Control required type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].toma_office_symbol}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_office_symbol': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_office_symbol': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
 
@@ -33,7 +35,8 @@ export const TOProgramReqs = () => {
           <Form.Control required as="textarea"
             value={globalState.wizardOptions[globalState.tmcrIndex].toma_address}
             rows={3}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_address': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_address': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
 
@@ -42,7 +45,8 @@ export const TOProgramReqs = () => {
         <Col>
           <Form.Control required type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].toma_phone}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_phone': e.target.value}})} />
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_phone': e.target.value}})}
+            readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
     </div>

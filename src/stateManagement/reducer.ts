@@ -33,6 +33,16 @@ const Reducer = (state: GlobalStateInterface, action: ActionType): any => {
       if (state.wizardOptions.length === 1) {
         let wizardOptions = [...state.wizardOptions];
         wizardOptions.push({...defaultOptions});
+        // Copy from first TMCR
+        wizardOptions[1].program_mod_system_name = wizardOptions[0].program_mod_system_name;
+        wizardOptions[1].rfp_contract = wizardOptions[0].rfp_contract;
+        wizardOptions[1].tmcr_date = wizardOptions[0].tmcr_date;
+        wizardOptions[1].contract_type = wizardOptions[0].contract_type;
+        wizardOptions[1].toma_name = wizardOptions[0].toma_name;
+        wizardOptions[1].toma_office_symbol = wizardOptions[0].toma_office_symbol;
+        wizardOptions[1].toma_address = wizardOptions[0].toma_address;
+        wizardOptions[1].toma_phone = wizardOptions[0].toma_phone;
+
         return {
           ...state,
           wizardOptions,

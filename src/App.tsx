@@ -4,12 +4,31 @@ import './App.css';
 import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
 import PizZipUtils from 'pizzip/utils/index.js';
+import expressions from 'angular-expressions';
 import { saveAs } from 'file-saver';
 import { TMCRFinalStep, TMCRWizardSteps } from './Steps/Steps';
 import AppHeader from './components/AppHeader';
 import { globalContext } from './stateManagement/GlobalStore';
 import { AlertModal } from './Steps/AlertModal';
 import { AppLeftNav } from './components/AppLeftNav';
+
+function angularParser(tag: any) {
+  tag = tag
+    .replace(/^\.$/, "this");
+  const expr = expressions.compile(tag);
+  return {
+    get: function (scope: any, context: any) {
+      let obj = {};
+      const scopeList = context.scopeList;
+      const num = context.num;
+      for (let i = 0, len = num + 1; i < len; i++)
+      {
+        obj = Object.assign(obj, scopeList[i]);
+      }
+      return expr(scope, obj);
+    },
+  };
+}
 
 function App() {
   const { globalState, dispatch } = useContext(globalContext);
@@ -42,7 +61,7 @@ function App() {
     console.log("generating document...");
     console.log(globalState)
     PizZipUtils.getBinaryContent(
-      '.\\S1000D_Linear Combined_Review.docx',
+      '.\\TMCR_Template.docx',
       function (error: any, content: any) {
         if (error) {
           throw error;
@@ -51,16 +70,17 @@ function App() {
         const doc = new Docxtemplater(zip, {
           paragraphLoop: true,
           linebreaks: true,
+          parser: angularParser
         });
 
         // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
-        doc.render(globalState.wizardOptions);
+        doc.render(globalState);
         const out = doc.getZip().generate({
           type: "blob",
           mimeType:
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         }); //Output the document using Data-URI
-        saveAs(out, globalState.wizardOptions.program_mod_system_name + "_template.docx");
+        saveAs(out, globalState.wizardOptions[0].program_mod_system_name + "_template.docx");
         setLoading(false);
       }
     );
