@@ -104,7 +104,7 @@ export const Attachment1Graphics = () => {
 
     if (e.target.id === 'graphics_none' && e.target.checked)
     {
-      guidelines.map(item => {
+      guidelines.forEach(item => {
         if (item.ID !== "graphics_none") {
           payload[item.ID] = false;
         }
