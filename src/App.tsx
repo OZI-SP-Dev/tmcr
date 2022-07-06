@@ -14,7 +14,9 @@ import { AppLeftNav } from './components/AppLeftNav';
 
 function angularParser(tag: any) {
   tag = tag
-    .replace(/^\.$/, "this");
+    .replace(/^\.$/, "this")
+    .replace(/(‘|’)/g, "'")
+    .replace(/(“|”)/g, '"');
   const expr = expressions.compile(tag);
   return {
     get: function (scope: any, context: any) {
@@ -79,8 +81,9 @@ function App() {
           type: "blob",
           mimeType:
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            compression: "DEFLATE",
         }); //Output the document using Data-URI
-        saveAs(out, globalState.wizardOptions[0].program_mod_system_name + "_template.docx");
+        saveAs(out, globalState.program_mod_system_name + "_template.docx");
         setLoading(false);
       }
     );
