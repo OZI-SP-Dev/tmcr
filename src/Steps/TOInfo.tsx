@@ -150,6 +150,30 @@ export const TOInfo = () => {
         </Col>
       </Form.Group>
 
+      {globalState.wizardOptions[globalState.tmcrIndex].new_revision === "conversion" ? 
+      <>
+      <Form.Group className="text-start">
+        <Col sm={{ offset: 1}}>
+            <Form.Check type="switch" 
+              checked={globalState.wizardOptions[globalState.tmcrIndex].jnwps_eod_data} 
+              id="jnwps_eod_data"
+              label="Does your program have Joint Nuclear Weapons Publications System (JNWPS) or Non-nuclear Explosive Ordnance Disposal (EOD)?"
+              onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'jnwps_eod_data': e.target.checked}})} />
+        </Col>
+      </Form.Group>
+
+      <Form.Group className="text-start">
+        <Col sm={{ offset: 1}}>
+            <Form.Check type="switch" 
+              checked={globalState.wizardOptions[globalState.tmcrIndex].ctr_maintained_conversion_tos} 
+              id="ctr_maintained_conversion_tos"
+              label="Is the contractor maintaining TOs after the conversion?"
+              onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'ctr_maintained_conversion_tos': e.target.checked}})} />
+        </Col>
+      </Form.Group>
+      </>
+      : <></>}
+
     </div>
   );
 }
