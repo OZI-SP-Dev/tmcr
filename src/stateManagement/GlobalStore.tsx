@@ -20,27 +20,27 @@ export function GlobalStore({ children }: { children: ReactNode }): ReactElement
 
 export const globalContext = createContext({} as ContextType);
 export const defaultOptions = {
-  program_mod_system_name: "",
   attachment: "",
   cdrl_sequence_number: "",
   exhibit: "",
-  rfp_contract: "",
   clin: "",
-  tmcr_date: "",
   contract_type: "",
   new_revision: "",
   tmcr_type: "",
-  toma_name: "",
-  toma_office_symbol: "",
-  toma_address: "",
-  toma_phone: ""
 }
 
 export const initialState: GlobalStateInterface = {
   wizardOptions: [{...defaultOptions}],
   wizardStep: 0,
   wizardMaxStep: [0, 1],
-  tmcrIndex: 0
+  tmcrIndex: 0,
+  program_mod_system_name: "",
+  rfp_contract: "",
+  tmcr_date: "",
+  toma_name: "",
+  toma_office_symbol: "",
+  toma_address: "",
+  toma_phone: "",
 }
 
 /* 

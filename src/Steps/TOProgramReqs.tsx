@@ -13,8 +13,8 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Name</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions[globalState.tmcrIndex].toma_name}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_name': e.target.value}})}
+            value={globalState.toma_name}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'toma_name': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
@@ -23,8 +23,8 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Office Symbol</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions[globalState.tmcrIndex].toma_office_symbol}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_office_symbol': e.target.value}})}
+            value={globalState.toma_office_symbol}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'toma_office_symbol': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
@@ -33,9 +33,9 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Address</Form.Label>
         <Col>
           <Form.Control required as="textarea"
-            value={globalState.wizardOptions[globalState.tmcrIndex].toma_address}
+            value={globalState.toma_address}
             rows={3}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_address': e.target.value}})}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'toma_address': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
@@ -44,8 +44,8 @@ export const TOProgramReqs = () => {
         <Form.Label column sm={2}>TOMA Phone Number (Commercial)</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions[globalState.tmcrIndex].toma_phone}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'toma_phone': e.target.value}})}
+            value={globalState.toma_phone}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'toma_phone': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>

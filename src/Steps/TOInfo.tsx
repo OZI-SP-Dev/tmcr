@@ -4,6 +4,20 @@ import { globalContext } from '../stateManagement/GlobalStore';
 
 export const TOInfo = () => {
   const { globalState, dispatch } = useContext(globalContext);
+
+  // new_revision can't be "conversion" for any tmcr_type except "S1000D"
+  // A user may select S1000D conversion and then change the type away from S1000D
+  // If they do so, clear the conversion selection
+  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    let payload: any = {};
+    if (globalState.wizardOptions[globalState.tmcrIndex].new_revision === "conversion")
+    {
+      payload.new_revision = false;
+    }
+    payload.tmcr_type = e.target.value;
+    dispatch({ type: 'MERGE_OPTION', payload });
+  }
+
   return (
     <div className="m-3">
       <h1>TMCR Information</h1>
@@ -13,8 +27,8 @@ export const TOInfo = () => {
         <Form.Label column sm={2}>System Name</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions[globalState.tmcrIndex].program_mod_system_name}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'program_mod_system_name': e.target.value}})}
+            value={globalState.program_mod_system_name}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'program_mod_system_name': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
@@ -50,8 +64,8 @@ export const TOInfo = () => {
         <Form.Label column sm={2}>RFP/Contract</Form.Label>
         <Col>
           <Form.Control required type="text"
-            value={globalState.wizardOptions[globalState.tmcrIndex].rfp_contract}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'rfp_contract': e.target.value}})}
+            value={globalState.rfp_contract}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'rfp_contract': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
@@ -69,8 +83,8 @@ export const TOInfo = () => {
         <Form.Label column sm={2}>Date</Form.Label>
         <Col>
           <Form.Control required type="date"
-            value={globalState.wizardOptions[globalState.tmcrIndex].tmcr_date}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'tmcr_date': e.target.value}})}
+            value={globalState.tmcr_date}
+            onChange={e => dispatch({ type: 'MERGE_GLOBAL_OPTION', payload: {'tmcr_date': e.target.value}})}
             readOnly={globalState.tmcrIndex === 1} />
         </Col>
       </Form.Group>
@@ -80,8 +94,7 @@ export const TOInfo = () => {
         <Col>
           <Form.Select required aria-label="Contract Type"
             value={globalState.wizardOptions[globalState.tmcrIndex].contract_type}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'contract_type': e.target.value}})}
-            disabled={globalState.tmcrIndex === 1}>
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'contract_type': e.target.value}})}>
             <option></option>
             <option>Firm-Fixed-Price (FFP)</option>
             <option>Fixed-Price Economic Price Adjustment (FPEPA)</option>
@@ -98,6 +111,20 @@ export const TOInfo = () => {
         </Col>
       </Form.Group>
 
+      <Form.Group as={Row} className="mb-3" controlId="tmcrType">
+        <Form.Label column sm={2}>TMCR Type</Form.Label>
+        <Col>
+          <Form.Select required aria-label="TMCR Type"
+            value={globalState.wizardOptions[globalState.tmcrIndex].tmcr_type}
+            onChange={handleTypeChange}>
+            <option></option>
+            { (globalState.tmcrIndex===0 || (globalState.wizardOptions[0].tmcr_type !== "S1000D")) && <option value="S1000D">S1000D (IETM)</option> }
+            { (globalState.tmcrIndex===0 || (globalState.wizardOptions[0].tmcr_type !== "Linear")) && <option value="Linear">Linear (SGML/XML)</option> }
+            { (globalState.tmcrIndex===0 || (globalState.wizardOptions[0].tmcr_type !== "CDA")) && <option value="CDA">CDA (i.e., CDA/COTS</option> }
+          </Form.Select>
+        </Col>
+      </Form.Group>
+      
       <Form.Group as={Row} className="mb-3" controlId="newRevision">
         <Form.Label column sm={2}>New Acquisition Or Revision (Mod)</Form.Label>
         <Col className="text-start">
@@ -113,23 +140,40 @@ export const TOInfo = () => {
             label="Revision (i.e. Modification)"
             id="revision"
             onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'new_revision': e.target.id}})}/>
+          <Form.Check required type="radio"
+            checked={globalState.wizardOptions[globalState.tmcrIndex].new_revision === "conversion"}
+            name="newRevision"
+            label="Conversion (S1000D Only)"
+            id="conversion"
+            disabled={!(globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "S1000D")}
+            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'new_revision': e.target.id}})}/>
         </Col>
       </Form.Group>
 
-
-      <Form.Group as={Row} className="mb-3" controlId="tmcrType">
-        <Form.Label column sm={2}>TMCR Type</Form.Label>
-        <Col>
-          <Form.Select required aria-label="TMCR Type"
-            value={globalState.wizardOptions[globalState.tmcrIndex].tmcr_type}
-            onChange={e => dispatch({ type: 'MERGE_OPTION', payload: { 'tmcr_type': e.target.value }})}>
-            <option></option>
-            { (globalState.tmcrIndex===0 || (globalState.wizardOptions[0].tmcr_type !== "S1000D")) && <option value="S1000D">S1000D (IETM)</option> }
-            { (globalState.tmcrIndex===0 || (globalState.wizardOptions[0].tmcr_type !== "Linear")) && <option value="Linear">Linear (SGML/XML)</option> }
-            { (globalState.tmcrIndex===0 || (globalState.wizardOptions[0].tmcr_type !== "CDA")) && <option value="CDA">CDA (i.e., CDA/COTS</option> }
-          </Form.Select>
+      {globalState.wizardOptions[globalState.tmcrIndex].new_revision === "conversion" ? 
+      <>
+      <Form.Group className="text-start">
+        <Col sm={{ offset: 1}}>
+            <Form.Check type="switch" 
+              checked={globalState.wizardOptions[globalState.tmcrIndex].jnwps_eod_data} 
+              id="jnwps_eod_data"
+              label="Does your program have Joint Nuclear Weapons Publications System (JNWPS) or Non-nuclear Explosive Ordnance Disposal (EOD)?"
+              onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'jnwps_eod_data': e.target.checked}})} />
         </Col>
       </Form.Group>
+
+      <Form.Group className="text-start">
+        <Col sm={{ offset: 1}}>
+            <Form.Check type="switch" 
+              checked={globalState.wizardOptions[globalState.tmcrIndex].ctr_maintained_conversion_tos} 
+              id="ctr_maintained_conversion_tos"
+              label="Is the contractor maintaining TOs after the conversion?"
+              onChange={e => dispatch({ type: 'MERGE_OPTION', payload: {'ctr_maintained_conversion_tos': e.target.checked}})} />
+        </Col>
+      </Form.Group>
+      </>
+      : <></>}
+
     </div>
   );
 }

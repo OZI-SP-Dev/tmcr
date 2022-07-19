@@ -101,6 +101,17 @@ export const Attachment1Graphics = () => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
     let payload:any = {};
     payload[e.target.id] = e.target.checked;
+
+    if (e.target.id === 'graphics_none' && e.target.checked)
+    {
+      guidelines.forEach(item => {
+        if (item.ID !== "graphics_none") {
+          payload[item.ID] = false;
+        }
+      });
+    } else {
+      payload.graphics_none = false;
+    }
     
     dispatch({ type: 'MERGE_OPTION', payload});
   }
