@@ -319,8 +319,8 @@ export const TOInfo = () => {
         </Col>
       </Form.Group>
 
-      {globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
-      "conversion" ? (
+      {globalState.wizardOptions[globalState.tmcrIndex].tmcr_type ===
+        "S1000D" && (
         <>
           <Form.Group className="text-start">
             <Col sm={{ offset: 1 }}>
@@ -364,8 +364,6 @@ export const TOInfo = () => {
             </Col>
           </Form.Group>
         </>
-      ) : (
-        <></>
       )}
     </div>
   );
