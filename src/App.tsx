@@ -104,10 +104,10 @@ function App() {
       <AppHeader />
       <Container fluid>
         <Row>
-          <Col xs={3}>
+          <Col md={2} className="d-none d-md-block">
             <AppLeftNav />
           </Col>
-          <Col>
+          <Col md={10} xs={12}>
             <Form className="mb-3" onSubmit={handleSubmit}>
               <TMCRWizardSteps currentStep={globalState.wizardStep} />
               <Stack direction="horizontal" gap={3}>

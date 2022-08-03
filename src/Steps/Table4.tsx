@@ -162,7 +162,7 @@ export const Table4 = () => {
         <tbody>
           <tr>
             <td></td>
-            <td>
+            <td style={{ minWidth: "8em" }}>
               <InputGroup>
                 <Form.Control
                   required
@@ -181,7 +181,7 @@ export const Table4 = () => {
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
-            <td>
+            <td style={{ minWidth: "8em" }}>
               <InputGroup>
                 <Form.Control
                   required
@@ -200,7 +200,7 @@ export const Table4 = () => {
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
-            <td>
+            <td style={{ minWidth: "8em" }}>
               <InputGroup>
                 <Form.Control
                   required
@@ -219,7 +219,7 @@ export const Table4 = () => {
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
-            <td>
+            <td style={{ minWidth: "8em" }}>
               <InputGroup>
                 <Form.Control
                   required
@@ -238,7 +238,7 @@ export const Table4 = () => {
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
-            <td>
+            <td style={{ minWidth: "8em" }}>
               <InputGroup>
                 <Form.Control
                   required
@@ -260,9 +260,7 @@ export const Table4 = () => {
             <td></td>
           </tr>
           <tr>
-            <th colSpan={7} className="text-start">
-              Deliverable
-            </th>
+            <th>Deliverable</th>
           </tr>
           {knownDeliverables.map((element, i) => (
             <tr key={element.Id}>
