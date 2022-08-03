@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
 
@@ -8,15 +8,32 @@ export const TOInfo = () => {
   // new_revision can't be "conversion" for any tmcr_type except "S1000D"
   // A user may select S1000D conversion and then change the type away from S1000D
   // If they do so, clear the conversion selection
-  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     let payload: any = {};
+
+    // if subtype "conversion" is set, clear it
     if (
       globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
       "conversion"
     ) {
       payload.new_revision = false;
     }
+
+    // if type is changing away from S1000D, clear ctr maintained TOs
+    if (e.target.value !== "S1000D") {
+      payload.ctr_maintained_conversion_tos = false;
+    }
+
     payload.tmcr_type = e.target.value;
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
+  const handleSubTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let payload: any = {};
+    if (e.target.id != "conversion") {
+      payload.ctr_maintained_conversion_tos = false;
+    }
+    payload.new_revision = e.target.id;
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
@@ -269,12 +286,7 @@ export const TOInfo = () => {
             name="newRevision"
             label="New Acquisition"
             id="new"
-            onChange={(e) =>
-              dispatch({
-                type: "MERGE_OPTION",
-                payload: { new_revision: e.target.id },
-              })
-            }
+            onChange={handleSubTypeChange}
           />
           <Form.Check
             required
@@ -286,12 +298,7 @@ export const TOInfo = () => {
             name="newRevision"
             label="Revision (i.e. Modification)"
             id="revision"
-            onChange={(e) =>
-              dispatch({
-                type: "MERGE_OPTION",
-                payload: { new_revision: e.target.id },
-              })
-            }
+            onChange={handleSubTypeChange}
           />
           <Form.Check
             required
@@ -309,39 +316,33 @@ export const TOInfo = () => {
                 "S1000D"
               )
             }
+            onChange={handleSubTypeChange}
+          />
+        </Col>
+      </Form.Group>
+
+      <Form.Group className="text-start">
+        <Col sm={{ offset: 1 }}>
+          <Form.Check
+            type="switch"
+            checked={
+              globalState.wizardOptions[globalState.tmcrIndex].jnwps_eod_data
+            }
+            id="jnwps_eod_data"
+            label="Does your program have Joint Nuclear Weapons Publications System (JNWPS) or Non-nuclear Explosive Ordnance Disposal (EOD)?"
             onChange={(e) =>
               dispatch({
                 type: "MERGE_OPTION",
-                payload: { new_revision: e.target.id },
+                payload: { jnwps_eod_data: e.target.checked },
               })
             }
           />
         </Col>
       </Form.Group>
 
-      {globalState.wizardOptions[globalState.tmcrIndex].tmcr_type ===
-        "S1000D" && (
+      {globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
+        "conversion" && (
         <>
-          <Form.Group className="text-start">
-            <Col sm={{ offset: 1 }}>
-              <Form.Check
-                type="switch"
-                checked={
-                  globalState.wizardOptions[globalState.tmcrIndex]
-                    .jnwps_eod_data
-                }
-                id="jnwps_eod_data"
-                label="Does your program have Joint Nuclear Weapons Publications System (JNWPS) or Non-nuclear Explosive Ordnance Disposal (EOD)?"
-                onChange={(e) =>
-                  dispatch({
-                    type: "MERGE_OPTION",
-                    payload: { jnwps_eod_data: e.target.checked },
-                  })
-                }
-              />
-            </Col>
-          </Form.Group>
-
           <Form.Group className="text-start">
             <Col sm={{ offset: 1 }}>
               <Form.Check
