@@ -1,8 +1,19 @@
-import { createContext, ReactElement, ReactNode, useEffect, useReducer, useRef } from "react";
-import Reducer from './reducer';
-import { ContextType, GlobalStateInterface } from './types';
+import {
+  createContext,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useRef,
+} from "react";
+import Reducer from "./reducer";
+import { ContextType, GlobalStateInterface } from "./types";
 
-export function GlobalStore({ children }: { children: ReactNode }): ReactElement {
+export function GlobalStore({
+  children,
+}: {
+  children: ReactNode;
+}): ReactElement {
   const [globalState, dispatch] = useReducer(Reducer, initializeState());
   const initialRenderGlobalState = useRef(true);
 
@@ -10,12 +21,15 @@ export function GlobalStore({ children }: { children: ReactNode }): ReactElement
     if (initialRenderGlobalState.current) {
       initialRenderGlobalState.current = false;
     } else {
-      localStorage.setItem('tmcrGlobalState', JSON.stringify(globalState));
+      localStorage.setItem("tmcrGlobalState", JSON.stringify(globalState));
     }
-
   }, [globalState]);
 
-  return <globalContext.Provider value={{ globalState, dispatch }}>{children}</globalContext.Provider>
+  return (
+    <globalContext.Provider value={{ globalState, dispatch }}>
+      {children}
+    </globalContext.Provider>
+  );
 }
 
 export const globalContext = createContext({} as ContextType);
@@ -25,12 +39,13 @@ export const defaultOptions = {
   exhibit: "",
   clin: "",
   contract_type: "",
+  other_contract_type: "",
   new_revision: "",
   tmcr_type: "",
-}
+};
 
 export const initialState: GlobalStateInterface = {
-  wizardOptions: [{...defaultOptions}],
+  wizardOptions: [{ ...defaultOptions }],
   wizardStep: 0,
   wizardMaxStep: [0, 1],
   tmcrIndex: 0,
@@ -41,7 +56,7 @@ export const initialState: GlobalStateInterface = {
   toma_office_symbol: "",
   toma_address: "",
   toma_phone: "",
-}
+};
 
 /* 
 // Changed the format of the object saved in the global store
@@ -53,15 +68,16 @@ export const initialState: GlobalStateInterface = {
 
 const isOldFormat = (fls: any) => {
   return !Array.isArray(fls.wizardOptions);
-}
+};
 
 function initializeState() {
-  let fromLocalStorage = JSON.parse(localStorage.getItem('tmcrGlobalState') as string);
+  let fromLocalStorage = JSON.parse(
+    localStorage.getItem("tmcrGlobalState") as string
+  );
   if (fromLocalStorage && isOldFormat(fromLocalStorage)) {
-    console.log("Old state object format detected, removing..")
-    localStorage.removeItem('tmcrGlobalState');
+    console.log("Old state object format detected, removing..");
+    localStorage.removeItem("tmcrGlobalState");
     fromLocalStorage = null;
   }
   return fromLocalStorage || initialState;
 }
-

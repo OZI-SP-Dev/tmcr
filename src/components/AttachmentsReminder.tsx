@@ -12,8 +12,8 @@ export const AttachmentsReminder: FunctionComponent<IAttachmentsReminder> = (
 ) => {
   const { globalState } = useContext(globalContext);
   const isS1000D =
-    globalState.wizardOptions[0].tmcr_type === "S1000D" ||
-    globalState.wizardOptions[1].tmcr_type === "S1000D";
+    globalState.wizardOptions[0]?.tmcr_type === "S1000D" ||
+    globalState.wizardOptions[1]?.tmcr_type === "S1000D";
 
   return (
     <ToastContainer position="middle-center">
