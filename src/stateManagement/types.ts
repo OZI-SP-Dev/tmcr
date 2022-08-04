@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch } from "react";
 
 export interface GlobalStateInterface {
   wizardOptions: any;
@@ -17,9 +17,17 @@ export interface GlobalStateInterface {
 export type ActionType = {
   type: string;
   payload?: any;
-}
+};
 
 export type ContextType = {
   globalState: GlobalStateInterface;
   dispatch: Dispatch<ActionType>;
-}
+};
+
+export type Delivery = {
+  paper: number;
+  sgml: boolean;
+  pdf: boolean;
+  xml: boolean;
+  cddvd: number;
+};
