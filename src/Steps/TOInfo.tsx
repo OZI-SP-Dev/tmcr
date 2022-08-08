@@ -30,7 +30,7 @@ export const TOInfo = () => {
 
   const handleSubTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
     let payload: any = {};
-    if (e.target.id != "conversion") {
+    if (e.target.id !== "conversion") {
       payload.ctr_maintained_conversion_tos = false;
     }
     payload.new_revision = e.target.id;
