@@ -1,27 +1,29 @@
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal } from "react-bootstrap";
 
 /**
-   * Generates modal
-   * 
-   * @param show Boolean that determines when the modal is displayed
-   * @param close Function that handles the close
-   */
+ * Generates modal
+ *
+ * @param show Boolean that determines when the modal is displayed
+ * @param close Function that handles the close
+ */
 export interface IAlertModal {
-  show: boolean,
-  close: any
+  show: boolean;
+  close: any;
 }
 
 export const AlertModal: React.FunctionComponent<IAlertModal> = (props) => {
-
   const handleClose = () => {
-    return
-  }
+    return;
+  };
 
   return (
     <Modal show={props.show} onHide={handleClose}>
-      <Modal.Header><Modal.Title>Reset TMCR Data</Modal.Title></Modal.Header>
+      <Modal.Header>
+        <Modal.Title>Reset TMCR Data</Modal.Title>
+      </Modal.Header>
       <Modal.Body>
-        Warning: you will lose all selections that have been made, and will need to start over from the beginning.
+        Warning: you will lose all selections that have been made, and will need
+        to start over from the beginning.
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={() => props.close(false)} variant="primary">
@@ -33,4 +35,4 @@ export const AlertModal: React.FunctionComponent<IAlertModal> = (props) => {
       </Modal.Footer>
     </Modal>
   );
-}
+};

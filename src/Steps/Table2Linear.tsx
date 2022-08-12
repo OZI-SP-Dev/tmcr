@@ -31,7 +31,7 @@ export const Table2Linear = () => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
     let payload: any = {};
     let payloadName = e.target.id.slice(0, e.target.id.lastIndexOf("_"));
-    const index = e.target.id.substr(e.target.id.lastIndexOf("_") + 1);
+    const index = e.target.id.substring(e.target.id.lastIndexOf("_") + 1);
 
     payload.table2linear = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table2linear,
@@ -68,6 +68,17 @@ export const Table2Linear = () => {
     }
     payload.table2linear.push(newEntry);
 
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
+  const deleteRow = (index: number) => {
+    let table2Linear = [
+      ...globalState.wizardOptions[globalState.tmcrIndex].table2linear,
+    ];
+    table2Linear.splice(index, index + 1);
+
+    const payload = { table2linear: table2Linear };
+    
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
@@ -247,7 +258,15 @@ export const Table2Linear = () => {
                     deliveryName="final"
                   />
                 </td>
-                <td>Delete row button</td>
+                <td>
+                  <Button
+                    onClick={(e) => {
+                      deleteRow(i);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </td>
               </tr>
             )
           )}
