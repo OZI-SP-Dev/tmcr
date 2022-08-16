@@ -14,6 +14,29 @@ const defaultDelivery: Delivery = {
 
 export const Table2Linear = () => {
   const { globalState, dispatch } = useContext(globalContext);
+
+  const addRow = () => {
+    let payload: any = {};
+    const newEntry = {
+      address: "",
+      inprocess: { ...defaultDelivery },
+      verification: { ...defaultDelivery },
+      prepublication: { ...defaultDelivery },
+      final: { ...defaultDelivery },
+    };
+
+    if (!globalState.wizardOptions[globalState.tmcrIndex].table2linear) {
+      payload.table2linear = [];
+    } else {
+      payload.table2linear = [
+        ...globalState.wizardOptions[globalState.tmcrIndex].table2linear,
+      ];
+    }
+    payload.table2linear.push(newEntry);
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
   useEffect(() => {
     if (!globalState.wizardOptions[globalState.tmcrIndex].table2linear) {
       addRow();
@@ -49,28 +72,6 @@ export const Table2Linear = () => {
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
-  const addRow = () => {
-    let payload: any = {};
-    const newEntry = {
-      address: "",
-      inprocess: { ...defaultDelivery },
-      verification: { ...defaultDelivery },
-      prepublication: { ...defaultDelivery },
-      final: { ...defaultDelivery },
-    };
-
-    if (!globalState.wizardOptions[globalState.tmcrIndex].table2linear) {
-      payload.table2linear = [];
-    } else {
-      payload.table2linear = [
-        ...globalState.wizardOptions[globalState.tmcrIndex].table2linear,
-      ];
-    }
-    payload.table2linear.push(newEntry);
-
-    dispatch({ type: "MERGE_OPTION", payload });
-  };
-
   const deleteRow = (index: number) => {
     let table2Linear = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table2linear,
@@ -78,7 +79,7 @@ export const Table2Linear = () => {
     table2Linear.splice(index, index + 1);
 
     const payload = { table2linear: table2Linear };
-    
+
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
