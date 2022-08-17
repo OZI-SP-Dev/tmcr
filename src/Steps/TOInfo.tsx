@@ -1,40 +1,52 @@
-import { ChangeEvent, useContext } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
+import { NewAcqModal } from "./NewAcqModal";
 
 export const TOInfo = () => {
   const { globalState, dispatch } = useContext(globalContext);
+  const [showModal, setShowModal] = useState(false);
 
-  // new_revision can't be "conversion" for any tmcr_type except "S1000D"
-  // A user may select S1000D conversion and then change the type away from S1000D
-  // If they do so, clear the conversion selection
   const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     let payload: any = {};
 
-    // if subtype "conversion" is set, clear it
-    if (
-      globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
-      "conversion"
-    ) {
-      payload.new_revision = false;
-    }
-
-    // if type is changing away from S1000D, clear ctr maintained TOs
-    if (e.target.value !== "S1000D") {
-      payload.ctr_maintained_conversion_tos = false;
-    }
+    // Force re-select of subtype and ctr maintained TOs when main type changes
+    payload.new_revision = "";
+    payload.ctr_maintained_conversion_tos = false;
 
     payload.tmcr_type = e.target.value;
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
+  /**
+   * When the sub type changes to New Acq, display the waiver modal
+   * for S1000D and Linear, but not CDA.
+   */
   const handleSubTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let payload: any = {};
-    if (e.target.id !== "conversion") {
-      payload.ctr_maintained_conversion_tos = false;
+    if (
+      e.target.id === "new" &&
+      globalState.wizardOptions[globalState.tmcrIndex].tmcr_type !== "CDA"
+    ) {
+      setShowModal(true);
+    } else {
+      let payload: any = {};
+      if (e.target.id !== "conversion") {
+        payload.ctr_maintained_conversion_tos = false;
+      }
+      payload.new_revision = e.target.id;
+      dispatch({ type: "MERGE_OPTION", payload });
     }
-    payload.new_revision = e.target.id;
-    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
+  const handleNewAcqConfirmation = (result: boolean) => {
+    if (result) {
+      const payload = {
+        ctr_maintained_conversion_tos: false,
+        new_revision: "new",
+      };
+      dispatch({ type: "MERGE_OPTION", payload });
+    }
+    setShowModal(false);
   };
 
   return (
@@ -366,6 +378,8 @@ export const TOInfo = () => {
           </Form.Group>
         </>
       )}
+
+      <NewAcqModal show={showModal} close={handleNewAcqConfirmation} />
     </div>
   );
 };
