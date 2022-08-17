@@ -11,15 +11,15 @@ import { FinalStep } from "./FinalStep";
 
 export const TMCRStepNames = [
   "Home",
-  "TO Info",
-  "TO Program Requirements",
+  "TMCR Information",
+  "TOMA Details",
   "TMSS Requirements",
   "IETM Functional Requirements",
   "Table 2 Linear",
   "Configurable Requirements",
   "Delivery Requirements",
   "Attachment 1",
-  "Review/Print",
+  "Complete",
 ];
 export const TMCRFinalStep = TMCRStepNames.length - 1;
 

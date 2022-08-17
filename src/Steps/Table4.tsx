@@ -111,7 +111,7 @@ export const Table4 = () => {
 
   return (
     <div className="m-3">
-      <h1>ITEM Functionality Requirements</h1>
+      <h1>IETM Functionality Requirements</h1>
       <h3>Table 4 - S1000D TM Delivery Requirements</h3>
       <br />
       <h5>NOTES:</h5>

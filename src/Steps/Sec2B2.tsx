@@ -168,7 +168,7 @@ export const Sec2B2 = () => {
 
   return (
     <div className="m-3">
-      <h1>ITEM Functionality Requirements</h1>
+      <h1>IETM Functionality Requirements</h1>
       <h3>SECTION II: B-2 Configurable Requirements</h3>
       <br />
       <Table striped bordered hover responsive>
