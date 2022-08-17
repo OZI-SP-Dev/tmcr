@@ -171,6 +171,17 @@ export const Sec2B2 = () => {
       <h1>IETM Functionality Requirements</h1>
       <h3>SECTION II: B-2 Configurable Requirements</h3>
       <br />
+      <h5>Notes:</h5>
+      <ul className="text-start">
+        <li>
+          <h5>
+            Section II configurable requirements are tailorable to the program’s
+            specific needs. Programs should evaluate and select the requirements
+            in this table.
+          </h5>
+        </li>
+      </ul>
+
       <Table striped bordered hover responsive>
         <thead>
           <tr>

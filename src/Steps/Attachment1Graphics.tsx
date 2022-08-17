@@ -122,6 +122,21 @@ export const Attachment1Graphics = () => {
     <div className="m-3">
       <h1>Attachment 1</h1>
       <h3>Graphics Format Options</h3>
+      <br />
+      <h5>NOTES:</h5>
+      <ul className="text-start">
+        <li>
+          <h5>
+            If your program has a specific graphic requirement, please select
+            the applicable graphic(s)
+          </h5>
+        </li>
+        <li>
+          <h5>
+            If no graphic is required, select “No Graphic” (last selection)
+          </h5>
+        </li>
+      </ul>
       <ol className="text-start">
         {guidelines.map((element) => (
           <div key={element.ID}>
