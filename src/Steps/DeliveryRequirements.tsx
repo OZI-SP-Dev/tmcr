@@ -4,7 +4,10 @@ import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 
 export interface IDeliveryRequirements {
   delivery: Delivery;
-  handleClick: any;
+  handleClick: (
+    e: ChangeEvent<HTMLInputElement>,
+    delivery_type?: string
+  ) => void;
   i: number;
   deliveryName: string;
 }

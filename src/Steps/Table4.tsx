@@ -66,6 +66,17 @@ export const Table4 = () => {
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
+  const deleteRow = (index: number) => {
+    let table4_custom = [
+      ...globalState.wizardOptions[globalState.tmcrIndex].table4_custom,
+    ];
+    table4_custom.splice(index, index + 1);
+
+    const payload = { table4_custom: table4_custom };
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
   const knownDeliverables = [
     {
       Id: "cdsb",
@@ -148,6 +159,7 @@ export const Table4 = () => {
           <tr>
             <th></th>
             <th colSpan={6}>Number of days data required prior to event</th>
+            <th style={{ minWidth: "6em" }}></th>
           </tr>
           <tr>
             <th></th>
@@ -157,6 +169,7 @@ export const Table4 = () => {
             <th>Verification </th>
             <th>Prepublication Review</th>
             <th>Final Delivery</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -258,9 +271,11 @@ export const Table4 = () => {
               </InputGroup>
             </td>
             <td></td>
+            <td></td>
           </tr>
           <tr>
             <th>Deliverable</th>
+            <th colSpan={7}></th>
           </tr>
           {knownDeliverables.map((element, i) => (
             <tr key={element.Id}>
@@ -337,6 +352,7 @@ export const Table4 = () => {
                   onChange={handleClick}
                 />
               </td>
+              <td></td>
             </tr>
           ))}
 
@@ -398,6 +414,15 @@ export const Table4 = () => {
                     id={"final_delivery_" + i}
                     onChange={handleCustomClick}
                   />
+                </td>
+                <td>
+                  <Button
+                    onClick={(e) => {
+                      deleteRow(i);
+                    }}
+                  >
+                    Delete
+                  </Button>
                 </td>
               </tr>
             )
