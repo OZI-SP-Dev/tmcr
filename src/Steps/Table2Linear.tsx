@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useContext, useEffect } from "react";
+import { ChangeEvent, useContext, useEffect } from "react";
 import { Button, Form, InputGroup, Table } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
 import { Delivery } from "../stateManagement/types";
@@ -47,7 +47,7 @@ export const Table2Linear = () => {
     return <></>;
   }
 
-  const handleClick: ChangeEventHandler = (
+  const handleClick = (
     e: ChangeEvent<HTMLInputElement>,
     delivery_type?: string
   ) => {

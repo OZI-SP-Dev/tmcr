@@ -1,7 +1,7 @@
 import { ActionType, GlobalStateInterface } from "./types";
 import { defaultOptions, initialState } from "./GlobalStore";
 
-const Reducer = (state: GlobalStateInterface, action: ActionType): any => {
+const Reducer = (state: GlobalStateInterface, action: ActionType) => {
   switch (action.type) {
     case "MERGE_OPTION":
       let wizardOptions = state.wizardOptions;
