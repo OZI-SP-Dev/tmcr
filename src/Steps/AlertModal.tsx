@@ -22,8 +22,10 @@ export const AlertModal: React.FunctionComponent<IAlertModal> = (props) => {
         <Modal.Title>Reset TMCR Data</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        Warning: you will lose all selections that have been made, and will need
-        to start over from the beginning.
+        <strong>
+          Warning: you will lose all selections that have been made, and will
+          need to start over from the beginning.
+        </strong>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={() => props.close(false)} variant="primary">
