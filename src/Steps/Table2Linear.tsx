@@ -187,20 +187,7 @@ export const Table2Linear = () => {
             </td>
             <td style={{ minWidth: "8em" }}>
               <InputGroup>
-                <Form.Control
-                  required
-                  type="number"
-                  value={
-                    globalState.wizardOptions[globalState.tmcrIndex]
-                      .final_to_delivery_days || 0
-                  }
-                  onChange={(e) =>
-                    dispatch({
-                      type: "MERGE_OPTION",
-                      payload: { final_to_delivery_days: e.target.value },
-                    })
-                  }
-                />
+                <Form.Control disabled read-only type="number" value={0} />
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
