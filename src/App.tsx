@@ -90,7 +90,7 @@ function App() {
           type: "blob",
           mimeType:
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-          //compression: "DEFLATE",
+          compression: "DEFLATE",
         }); //Output the document using Data-URI
         saveAs(out, globalState.program_mod_system_name + "_template.docx");
         setLoading(false);
