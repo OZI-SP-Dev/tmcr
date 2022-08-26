@@ -128,7 +128,10 @@ export const Table4 = () => {
       <h5>NOTES:</h5>
       <ul className="text-start">
         <li>
-          <h5>Select deliverable for required event</h5>
+          <h5>
+            Select deliverables and annotate the number of days required for
+            each event
+          </h5>
         </li>
       </ul>
 

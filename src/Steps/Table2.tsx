@@ -49,6 +49,15 @@ export const Table2 = () => {
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
+  const deleteRow = (index: number) => {
+    let table2 = [...globalState.wizardOptions[globalState.tmcrIndex].table2];
+    table2.splice(index, index + 1);
+
+    const payload = { table2: table2 };
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
   return (
     <div className="m-3">
       <h1>TMCR Information</h1>
@@ -148,6 +157,15 @@ export const Table2 = () => {
                     aria-label={"Item " + (i + 1) + " Source Data"}
                     onChange={handleClick}
                   />
+                </td>
+                <td>
+                  <Button
+                    onClick={(e) => {
+                      deleteRow(i);
+                    }}
+                  >
+                    Delete
+                  </Button>
                 </td>
               </tr>
             )
