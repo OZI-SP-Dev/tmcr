@@ -5,6 +5,16 @@ import { globalContext } from "../stateManagement/GlobalStore";
 export const Sec2B2 = () => {
   const { globalState, dispatch } = useContext(globalContext);
 
+  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type !== "S1000D") {
+    return (
+      <div className="m-3">
+        <h1>IETM Functionality Requirements</h1>
+        <br />
+        <h3>No requirements to specify for this TMCR</h3>
+      </div>
+    );
+  }
+
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
     let payload: any = {};

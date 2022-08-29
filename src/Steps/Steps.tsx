@@ -2,8 +2,7 @@ import { Preface } from "./Preface";
 import { TOInfo } from "./TOInfo";
 import { TOProgramReqs } from "./TOProgramReqs";
 import { TMSSReqs } from "./TMSSReqs";
-import { Table2 } from "./Table2";
-import { Table2Linear } from "./Table2Linear";
+import { Table2Container } from "./Table2Container";
 import { Sec2B2 } from "./Sec2B2";
 import { Table4 } from "./Table4";
 import { Attachment1Graphics } from "./Attachment1Graphics";
@@ -14,8 +13,7 @@ export const TMCRStepNames = [
   "TMCR Information",
   "TOMA Details",
   "TMSS Requirements",
-  "IETM Functional Requirements",
-  "Table 2 Linear",
+  "Table 2",
   "Configurable Requirements",
   "Delivery Requirements",
   "Attachment 1",
@@ -28,8 +26,7 @@ const WizardSteps = [
   <TOInfo />,
   <TOProgramReqs />,
   <TMSSReqs />,
-  <Table2 />,
-  <Table2Linear />,
+  <Table2Container />,
   <Sec2B2 />,
   <Table4 />,
   <Attachment1Graphics />,

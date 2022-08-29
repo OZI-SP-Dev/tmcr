@@ -19,6 +19,16 @@ export const Table4 = () => {
     }
   });
 
+  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "Linear") {
+    return (
+      <div className="m-3">
+        <h1>IETM Functionality Requirements</h1>
+        <br />
+        <h3>No Delivery Requirements for Linear TMCRs</h3>
+      </div>
+    );
+  }
+
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
     let payload: any = {};
