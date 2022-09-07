@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Col, Form } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
+import "./TMSSReqs.css";
 
 export const TMSSReqs = () => {
   const { globalState, dispatch } = useContext(globalContext);
@@ -28,36 +29,73 @@ export const TMSSReqs = () => {
     {
       name: "Cargo Aircraft Loading and Offloading TOs (MIL-DTL-5288)",
       manuals: [
-        { name: "Loading Instructions Manual", id: "tmss2_a" },
+        { name: "Loading Instructions Manual", id: "tmss_2_a" },
         { name: "Nuclear Weapon Cargo Loading Manual", id: "tmss_2_b" },
         { name: "Checklists", id: "tmss_2_c" },
       ],
     },
     {
-      name: "Weight and Balance (Aircraft) (MIL-DTL-5920)",
+      name: "Flight Operation Manuals (MIL-DTL-7700)",
       manuals: [
-        { name: "Loading Data Manual", id: "tmss_3_a" },
-        { name: "Sample Basic Weight Checklists", id: "tmss_3_b" },
-      ],
-    },
-    {
-      name: "Flight Manuals (MIL-DTL-7700)",
-      manuals: [
-        { name: "Flight Manual", id: "tmss_4_a" },
-        { name: "Performance Data Manual", id: "tmss_4_b" },
-        { name: "Mission Crew Manual", id: "tmss_4_c" },
-        { name: "Supplemental Manual", id: "tmss_4_d" },
-        { name: "Abbreviated Flight Crew Checklist", id: "tmss_4_e" },
+        {
+          name: "Flight Manuals",
+          id: "tmss_3_a",
+          manuals: [
+            { name: "Flight Manual", id: "tmss_3_a_1" },
+            { name: "Performance Data Manual", id: "tmss_3_a_2" },
+            { name: "Mission Crew Manual", id: "tmss_3_a_3" },
+            { name: "Fanfold Checklists", id: "tmss_3_a_4" },
+            { name: "Supplemental Manual", id: "tmss_3_a_5" },
+            { name: "Abbreviated Flight Crew Checklist", id: "tmss_3_a_6" },
+            { name: "Non-nuclear Weapon Delivery Manual", id: "tmss_3_a_7" },
+            {
+              name: "Aircrew Nuclear Bomb Delivery Manual (Strategic Bomber Aircraft)",
+              id: "tmss_3_a_8",
+            },
+            {
+              name: "Aircrew Nuclear Missile Delivery Manual (Strategic Bomber Aircraft)",
+              id: "tmss_3_a_9",
+            },
+            {
+              name: "Aircrew Nuclear Bomb Delivery Manual (TacticalAircraft)",
+              id: "tmss_3_a_10",
+            },
+            {
+              name: "Non-nuclear Weapon Delivery Checklist",
+              id: "tmss_3_a_11",
+            },
+            {
+              name: "Nuclear Weapon Delivery Checklist (Strategic Bomber Aircraft)",
+              id: "tmss_3_a_12",
+            },
+            {
+              name: "Aircrew Nuclear Bomb Delivery Checklist (Tactical Aircraft)",
+              id: "tmss_3_a_13",
+            },
+            {
+              name: "Non-nuclear Weapon Delivery Source Data Packages",
+              id: "tmss_3_a_14",
+            },
+          ],
+        },
+        {
+          name: "Weight and Balance (Aircraft)",
+          id: "tmss_3_b",
+          manuals: [
+            { name: "Loading Data Manual", id: "tmss_3_b_1" },
+            { name: "Sample Basic Weight Checklists", id: "tmss_3_b_2" },
+          ],
+        },
       ],
     },
     {
       name: "List of Applicable Publications (MIL-DTL-8031)",
-      manuals: [{ name: "List of Applicable Publications", id: "tmss_5_a" }],
+      manuals: [{ name: "List of Applicable Publications", id: "tmss_4_a" }],
     },
     {
       name: "Structural Repair Manuals (for Aircraft) (MIL-DTL-9854)",
       manuals: [
-        { name: "Structural Repair Manuals (for Aircraft)", id: "tmss_6_a" },
+        { name: "Structural Repair Manuals (for Aircraft)", id: "tmss_5_a" },
       ],
     },
     {
@@ -93,37 +131,6 @@ export const TMSSReqs = () => {
         {
           name: "MIL-SPEC (Intercontinental Ballistic Missiles)",
           id: "tmss_8_a",
-        },
-      ],
-    },
-    {
-      name: "Nuclear and Non-nuclear Weapon Delivery and Aircrew Procedures Manuals and Checklists (MIL-DTL-38384)",
-      manuals: [
-        { name: "Non-nuclear Weapon Delivery Manual", id: "tmss_9_a" },
-        {
-          name: "Aircrew Nuclear Bomb Delivery Manual (Strategic Bomber Aircraft)",
-          id: "tmss_9_b",
-        },
-        {
-          name: "Aircrew Nuclear Missile Delivery Manual (Strategic Bomber Aircraft)",
-          id: "tmss_9_c",
-        },
-        {
-          name: "Aircrew Nuclear Bomb Delivery Manual (Tactical Aircraft)",
-          id: "tmss_9_d",
-        },
-        { name: "Non-nuclear Weapon Delivery Checklist", id: "tmss_9_e" },
-        {
-          name: "Nuclear Weapon Delivery Checklist (Strategic Bomber Aircraft))",
-          id: "tmss_9_f",
-        },
-        {
-          name: "Aircrew Nuclear Bomb Delivery Checklist (Tactical Aircraft)",
-          id: "tmss_9_g",
-        },
-        {
-          name: "Non-nuclear Weapon Delivery Source Data Packages",
-          id: "tmss_9_h",
         },
       ],
     },
@@ -222,12 +229,29 @@ export const TMSSReqs = () => {
             },
           ],
         },
-        { name: "With Illustrated Parts Breakdown", id: "tmss_16_d" },
+        { name: "Checklists (IAW MIL-DTL-5096)", id: "tmss_16_d" },
+        { name: "With Illustrated Parts Breakdown", id: "tmss_16_e" },
       ],
     },
     {
       name: "Aircraft Cross-servicing Guide (MIL-DTL-22202)",
       manuals: [{ name: "Aircraft Cross-servicing Guide", id: "tmss_17_a" }],
+    },
+  ];
+
+  const moreTMSSReqs = [
+    {
+      name: "Aircraft Cross-servicing Guide (MIL-DTL-22202)",
+      manuals: [
+        {
+          name: "Commercial Manuals (Evaluate according to MIL-PRF-32216)",
+          id: "tmss_18_a",
+        },
+      ],
+    },
+    {
+      name: "Aircraft Cross-servicing Guide (MIL-DTL-22202)",
+      manuals: [{ name: "IETM", id: "tmss_19_a" }],
     },
   ];
 
