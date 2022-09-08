@@ -290,6 +290,7 @@ export const TOInfo = () => {
         <Col className="text-start">
           <Form.Check
             required
+            style={{ display: "block" }}
             type="radio"
             checked={
               globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
@@ -302,6 +303,7 @@ export const TOInfo = () => {
           />
           <Form.Check
             required
+            style={{ display: "block" }}
             type="radio"
             checked={
               globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
@@ -314,6 +316,7 @@ export const TOInfo = () => {
           />
           <Form.Check
             required
+            style={{ display: "block" }}
             type="radio"
             checked={
               globalState.wizardOptions[globalState.tmcrIndex].new_revision ===
