@@ -41,7 +41,7 @@ export const Table4 = () => {
     // placeholder
     let payload: any = {};
     const payloadName = e.target.id.slice(0, e.target.id.lastIndexOf("_"));
-    const index = e.target.id.substr(e.target.id.lastIndexOf("_") + 1);
+    const index = e.target.id.substring(e.target.id.lastIndexOf("_") + 1);
 
     payload.table4_custom = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table4_custom,
@@ -130,6 +130,41 @@ export const Table4 = () => {
     },
   ];
 
+  const minChecks = new Map();
+  const reviews = [
+    "pdr",
+    "cdr",
+    "process_review",
+    "verification",
+    "prepub_review",
+  ];
+
+  // Set minimum values based on if standard items are selected or not
+  reviews.forEach((name) => {
+    let min = 0;
+    knownDeliverables.forEach((element) => {
+      if (
+        globalState.wizardOptions[globalState.tmcrIndex][
+          element.Id + "_" + name
+        ]
+      ) {
+        min = 1;
+      }
+    });
+    minChecks.set(name, min);
+  });
+
+  // Update minimum values based on if custom items are selected or not
+  globalState.wizardOptions[globalState.tmcrIndex].table4_custom.forEach(
+    (element: any) => {
+      reviews.forEach((name) => {
+        if (element[name]) {
+          minChecks.set(name, 1);
+        }
+      });
+    }
+  );
+
   return (
     <div className="m-3">
       <h1>IETM Functionality Requirements</h1>
@@ -193,6 +228,7 @@ export const Table4 = () => {
                 <Form.Control
                   required
                   type="number"
+                  min={minChecks.get("pdr")}
                   value={
                     globalState.wizardOptions[globalState.tmcrIndex].pdr_days ||
                     0
@@ -212,6 +248,7 @@ export const Table4 = () => {
                 <Form.Control
                   required
                   type="number"
+                  min={minChecks.get("cdr")}
                   value={
                     globalState.wizardOptions[globalState.tmcrIndex].cdr_days ||
                     0
@@ -231,6 +268,7 @@ export const Table4 = () => {
                 <Form.Control
                   required
                   type="number"
+                  min={minChecks.get("process_review")}
                   value={
                     globalState.wizardOptions[globalState.tmcrIndex]
                       .process_review_days || 0
@@ -250,6 +288,7 @@ export const Table4 = () => {
                 <Form.Control
                   required
                   type="number"
+                  min={minChecks.get("verification")}
                   value={
                     globalState.wizardOptions[globalState.tmcrIndex]
                       .verification_days || 0
@@ -269,6 +308,7 @@ export const Table4 = () => {
                 <Form.Control
                   required
                   type="number"
+                  min={minChecks.get("prepub_review")}
                   value={
                     globalState.wizardOptions[globalState.tmcrIndex]
                       .prepub_review_days || 0

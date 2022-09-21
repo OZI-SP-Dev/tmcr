@@ -14,7 +14,7 @@ export const Table2 = () => {
     // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
     let payload: any = {};
     const payloadName = e.target.id.slice(0, e.target.id.lastIndexOf("_"));
-    const index = e.target.id.substr(e.target.id.lastIndexOf("_") + 1);
+    const index = e.target.id.substring(e.target.id.lastIndexOf("_") + 1);
 
     payload.table2 = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table2,
