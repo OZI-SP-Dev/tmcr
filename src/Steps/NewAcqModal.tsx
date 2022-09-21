@@ -31,7 +31,7 @@ export const NewAcqModal = (props: INewAcqModal): JSX.Element => {
           Cancel
         </Button>
         <Button onClick={() => props.close(true)} variant="danger">
-          Confirm Waiver Requirement
+          Acknowledge Waiver Requirement
         </Button>
       </Modal.Footer>
     </Modal>

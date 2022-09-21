@@ -46,6 +46,22 @@ function App() {
   const [isChecking, setChecking] = useState(false);
   const [reminder, setReminder] = useState(false);
 
+  let submitButtonText;
+  if (isLoading) {
+    submitButtonText = "Generating Document...";
+  } else {
+    switch (globalState.wizardStep) {
+      case TMCRFinalStep:
+        submitButtonText = "Generate Document";
+        break;
+      case 0:
+        submitButtonText = "Start TMCR";
+        break;
+      default:
+        submitButtonText = "Save and Continue";
+    }
+  }
+
   function handleAlert(accept: boolean) {
     setChecking(false);
     if (accept) {
@@ -135,7 +151,8 @@ function App() {
                   globalState.tmcrIndex === 0
                 ) && (
                   <Button type="submit" disabled={isLoading}>
-                    {(isLoading === true && (
+                    <>
+                      {isLoading === true && (
                         <Spinner
                           as="span"
                           animation="grow"
@@ -143,11 +160,9 @@ function App() {
                           role="status"
                           aria-hidden="true"
                         />
-                      ) &&
-                      "Generating Document...") ||
-                      (globalState.wizardStep === TMCRFinalStep
-                        ? "Generate Document"
-                        : "Save and Continue")}
+                      )}
+                      {submitButtonText}
+                    </>
                   </Button>
                 )}
                 <div className="vr" />
