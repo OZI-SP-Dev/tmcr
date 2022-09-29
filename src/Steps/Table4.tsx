@@ -14,6 +14,7 @@ export const Table4 = () => {
         process_review_days: 0,
         verification_days: 0,
         prepub_review_days: 0,
+        final_delivery_days: 0,
       };
       dispatch({ type: "MERGE_OPTION", payload });
     }
@@ -87,6 +88,30 @@ export const Table4 = () => {
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
+  const toggleRow = (row: string) => {
+    let toggle = true;
+    const thisTMCR = globalState.wizardOptions[globalState.tmcrIndex];
+    if (
+      thisTMCR[row + "_pdr"] &&
+      thisTMCR[row + "_cdr"] &&
+      thisTMCR[row + "_process_review"] &&
+      thisTMCR[row + "_verification"] &&
+      thisTMCR[row + "_prepub_review"] &&
+      thisTMCR[row + "_final_delivery"]
+    ) {
+      toggle = false;
+    }
+    const payload: any = {};
+    payload[row + "_pdr"] = toggle;
+    payload[row + "_cdr"] = toggle;
+    payload[row + "_process_review"] = toggle;
+    payload[row + "_verification"] = toggle;
+    payload[row + "_prepub_review"] = toggle;
+    payload[row + "_final_delivery"] = toggle;
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
   const knownDeliverables = [
     {
       Id: "cdsb",
@@ -137,6 +162,7 @@ export const Table4 = () => {
     "process_review",
     "verification",
     "prepub_review",
+    "final_delivery",
   ];
 
   // Set minimum values based on if standard items are selected or not
@@ -155,7 +181,7 @@ export const Table4 = () => {
   });
 
   // Update minimum values based on if custom items are selected or not
-  globalState.wizardOptions[globalState.tmcrIndex].table4_custom.forEach(
+  globalState.wizardOptions[globalState.tmcrIndex].table4_custom?.forEach(
     (element: any) => {
       reviews.forEach((name) => {
         if (element[name]) {
@@ -207,7 +233,7 @@ export const Table4 = () => {
           <tr>
             <th></th>
             <th colSpan={6}>Number of days data required prior to event</th>
-            <th style={{ minWidth: "6em" }}></th>
+            <th style={{ minWidth: "8em" }}></th>
           </tr>
           <tr>
             <th></th>
@@ -323,7 +349,26 @@ export const Table4 = () => {
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
-            <td></td>
+            <td>
+              <InputGroup>
+                <Form.Control
+                  required
+                  type="number"
+                  min={minChecks.get("final_delivery")}
+                  value={
+                    globalState.wizardOptions[globalState.tmcrIndex]
+                      .final_delivery_days || 0
+                  }
+                  onChange={(e) =>
+                    dispatch({
+                      type: "MERGE_OPTION",
+                      payload: { final_delivery_days: e.target.value },
+                    })
+                  }
+                />
+                <InputGroup.Text>Days</InputGroup.Text>
+              </InputGroup>
+            </td>
             <td></td>
           </tr>
           <tr>
@@ -405,7 +450,15 @@ export const Table4 = () => {
                   onChange={handleClick}
                 />
               </td>
-              <td></td>
+              <td>
+                <Button
+                  onClick={(e) => {
+                    toggleRow(element.Id);
+                  }}
+                >
+                  Toggle Row
+                </Button>
+              </td>
             </tr>
           ))}
 
