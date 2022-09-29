@@ -18,7 +18,12 @@ export const Table4 = () => {
       };
       dispatch({ type: "MERGE_OPTION", payload });
     }
-  });
+  }, [dispatch, globalState.tmcrIndex, globalState.wizardOptions]);
+
+  let tableNumber = 4;
+  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "CDA") {
+    tableNumber = 3;
+  }
 
   if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "Linear") {
     return (
@@ -194,7 +199,7 @@ export const Table4 = () => {
   return (
     <div className="m-3">
       <h1>IETM Functionality Requirements</h1>
-      <h3>Table 4 - S1000D TM Delivery Requirements</h3>
+      <h3>Table {tableNumber} - TM Delivery Requirements</h3>
       <br />
       <h5>NOTES:</h5>
       <ul className="text-start">
