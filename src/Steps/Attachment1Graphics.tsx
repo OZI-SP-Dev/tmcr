@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
 
 export const Attachment1Graphics = () => {
@@ -118,6 +118,50 @@ export const Attachment1Graphics = () => {
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
+  const handleCustom = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Bit hacky here using the any type, but it allows us to dynamically name the payload attributes
+    let payload: any = {};
+    const payloadName = e.target.id.slice(0, e.target.id.lastIndexOf("_"));
+    const index = e.target.id.substring(e.target.id.lastIndexOf("_") + 1);
+
+    payload.graphics = [
+      ...globalState.wizardOptions[globalState.tmcrIndex]?.graphics,
+    ];
+    payload.graphics[index][payloadName] = e.target.value;
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
+  const addRow = () => {
+    let payload: any = {};
+    const newEntry = {
+      title: "",
+    };
+
+    if (!globalState.wizardOptions[globalState.tmcrIndex].graphics) {
+      payload.graphics = [];
+    } else {
+      payload.graphics = [
+        ...globalState.wizardOptions[globalState.tmcrIndex].graphics,
+      ];
+    }
+    payload.graphics.push(newEntry);
+    payload.graphics_none = false;
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
+  const deleteRow = (index: number) => {
+    let graphics = [
+      ...globalState.wizardOptions[globalState.tmcrIndex].graphics,
+    ];
+    graphics.splice(index, index + 1);
+
+    const payload = { graphics: graphics };
+
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
   return (
     <div className="m-3">
       <h1>Attachment 1</h1>
@@ -139,7 +183,7 @@ export const Attachment1Graphics = () => {
       </ul>
       <ol className="text-start">
         {guidelines.map((element) => (
-          <div key={element.ID}>
+          <div key={element.ID} className="mb-2">
             <h5>
               <Form.Check
                 type="checkbox"
@@ -153,6 +197,11 @@ export const Attachment1Graphics = () => {
                 label={element.Title + ":"}
                 onChange={handleClick}
                 required={element.ID === "graphics_none" && !isChecked}
+                disabled={
+                  element.ID === "graphics_none" &&
+                  globalState.wizardOptions[globalState.tmcrIndex].graphics
+                    ?.length > 0
+                }
               />
             </h5>
             <ul>
@@ -163,6 +212,36 @@ export const Attachment1Graphics = () => {
           </div>
         ))}
       </ol>
+      {globalState.wizardOptions[globalState.tmcrIndex].graphics?.length >
+        0 && <h3>Other Graphics Formats</h3>}
+      {globalState.wizardOptions[globalState.tmcrIndex].graphics?.map(
+        (element: any, i: number) => (
+          <InputGroup key={"graphics_" + i} className="m-3">
+            <InputGroup.Text id={"title_" + i}>{i + 1}</InputGroup.Text>
+            <Form.Control
+              type="text"
+              placeholder="Truevision TGA (TARGA)"
+              aria-label={"Item " + i + " Title"}
+              value={element.title}
+              id={"title_" + i}
+              onChange={handleCustom}
+            />
+            <Button
+              variant="danger"
+              onClick={(e) => {
+                deleteRow(i);
+              }}
+            >
+              Delete
+            </Button>
+          </InputGroup>
+        )
+      )}
+      <div className="text-end mt-4">
+        <Button variant="outline-primary" onClick={addRow}>
+          Add Graphics Format
+        </Button>
+      </div>
     </div>
   );
 };
