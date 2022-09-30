@@ -155,7 +155,7 @@ export const Attachment1Graphics = () => {
     let graphics = [
       ...globalState.wizardOptions[globalState.tmcrIndex].graphics,
     ];
-    graphics.splice(index, index + 1);
+    graphics.splice(index, 1);
 
     const payload = { graphics: graphics };
 
