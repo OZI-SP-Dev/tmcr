@@ -225,6 +225,7 @@ export const Attachment1Graphics = () => {
               value={element.title}
               id={"title_" + i}
               onChange={handleCustom}
+              required
             />
             <Button
               variant="danger"
