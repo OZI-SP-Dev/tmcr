@@ -147,7 +147,7 @@ export const TMSSReqs = () => {
       manuals: [{ name: "Calibration Procedures", id: "tmss_11_a" }],
     },
     {
-      name: "Time Compliance Technical Orders (TCTOs) (MIL-PRF-38311)",
+      name: "Time Compliance Technical Orders (TCTOs) (MIL-DTL-38804)",
       manuals: [
         { name: "TCTO", id: "tmss_12_a" },
         { name: "TCTO Supplement", id: "tmss_12_b" },
@@ -171,7 +171,7 @@ export const TMSSReqs = () => {
       manuals: [
         { name: "General Equipment (GE) Manual", id: "tmss_15_a" },
         { name: "General System (GS) Manuals", id: "tmss_15_b" },
-        { name: "Combined GE &amp; GS Manual", id: "tmss_15_c" },
+        { name: "Combined GE & GS Manual", id: "tmss_15_c" },
         { name: "Job Guide (JG) Manuals", id: "tmss_15_d" },
         { name: "Fault Reporting (FR) Manual", id: "tmss_15_e" },
         { name: "Fault Isolation (FI) Manual", id: "tmss_15_f" },
@@ -189,7 +189,7 @@ export const TMSSReqs = () => {
             { name: "Organizational Maintenance", id: "tmss_16_a_1" },
             { name: "Intermediate Maintenance", id: "tmss_16_a_2" },
             { name: "Depot Maintenance", id: "tmss_16_a_3" },
-            { name: "Combined (I&amp;D) Maintenance", id: "tmss_16_a_4" },
+            { name: "Combined (I&D) Maintenance", id: "tmss_16_a_4" },
             { name: "On Condition Maintenance", id: "tmss_16_a_5" },
           ],
         },
