@@ -30,11 +30,13 @@ function angularParser(tag: any) {
   return {
     get: function (scope: any, context: any) {
       let obj = {};
+      const index = context.scopePathItem.at(-1);
       const scopeList = context.scopeList;
       const num = context.num;
       for (let i = 0, len = num + 1; i < len; i++) {
         obj = Object.assign(obj, scopeList[i]);
       }
+      obj = Object.assign(obj, { $index: index });
       return expr(scope, obj);
     },
   };
