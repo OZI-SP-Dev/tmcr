@@ -86,7 +86,7 @@ export const Table2Linear = () => {
   return (
     <div className="m-3">
       <h1>Table 2</h1>
-      <h3>Linear TM Delivery Requirements</h3>
+      <h3>TM Delivery Requirements</h3>
       <br />
       <ul className="text-start">
         <li>
@@ -187,7 +187,7 @@ export const Table2Linear = () => {
             </td>
             <td style={{ minWidth: "8em" }}>
               <InputGroup>
-                <Form.Control disabled read-only type="number" value={0} />
+                <Form.Control disabled type="number" value={0} />
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>

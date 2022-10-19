@@ -19,12 +19,12 @@ export const Table4 = () => {
     }
   });
 
-  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "Linear") {
+  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type !== "S1000D") {
     return (
       <div className="m-3">
         <h1>IETM Functionality Requirements</h1>
         <br />
-        <h3>No Delivery Requirements for Linear TMCRs</h3>
+        <h3>No Table 4 for this TMCR type</h3>
       </div>
     );
   }
@@ -155,7 +155,7 @@ export const Table4 = () => {
   });
 
   // Update minimum values based on if custom items are selected or not
-  globalState.wizardOptions[globalState.tmcrIndex].table4_custom.forEach(
+  globalState.wizardOptions[globalState.tmcrIndex].table4_custom?.forEach(
     (element: any) => {
       reviews.forEach((name) => {
         if (element[name]) {
