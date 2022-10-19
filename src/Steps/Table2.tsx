@@ -1,6 +1,10 @@
 import { useContext, useEffect } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
+import { Typeahead } from "react-bootstrap-typeahead";
+
+import "react-bootstrap-typeahead/css/Typeahead.css";
+import "react-bootstrap-typeahead/css/Typeahead.bs5.css";
 
 export const Table2 = () => {
   const { globalState, dispatch } = useContext(globalContext);
@@ -22,6 +26,14 @@ export const Table2 = () => {
     payload.table2[index][payloadName] =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
+    dispatch({ type: "MERGE_OPTION", payload });
+  };
+
+  const handleTypeahead = (selected: string, index: number) => {
+    let payload = {
+      table2: [...globalState.wizardOptions[globalState.tmcrIndex].table2],
+    };
+    payload.table2[index]["specification"] = selected;
     dispatch({ type: "MERGE_OPTION", payload });
   };
 
@@ -57,6 +69,25 @@ export const Table2 = () => {
 
     dispatch({ type: "MERGE_OPTION", payload });
   };
+
+  const options = [
+    "MIL-DTL-5096",
+    "MIL-DTL-5288",
+    "MIL-DTL-7700",
+    "MIL-DTL-8031",
+    "MIL-DTL-9854",
+    "MIL-DTL-9977",
+    "MIL-PRF-38311",
+    "MIL-DTL-38769",
+    "MIL-PRF-38793",
+    "MIL-DTL-87158",
+    "MIL-DTL-38807",
+    "MIL-DTL-83495",
+    "MIL-DTL-87929",
+    "MIL-DTL-22202",
+    "MIL-PRF-32216",
+    "MIL-DTL-38804",
+  ];
 
   return (
     <div className="m-3">
@@ -105,12 +136,16 @@ export const Table2 = () => {
                   />
                 </td>
                 <td>
-                  <Form.Control
-                    type="text"
-                    aria-label={"Item " + i + " Specification"}
-                    value={element.specification}
+                  <Typeahead
+                    positionFixed={true}
+                    flip={true}
+                    defaultInputValue={element.specification}
                     id={"specification_" + i}
-                    onChange={handleClick}
+                    onChange={(selected) =>
+                      handleTypeahead(selected[0] as string, i)
+                    }
+                    onInputChange={(text) => handleTypeahead(text, i)}
+                    options={options}
                   />
                 </td>
                 <td>
