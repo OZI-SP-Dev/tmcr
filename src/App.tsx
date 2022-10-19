@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import {
+  Alert,
   Button,
   Col,
   Container,
@@ -7,6 +8,7 @@ import {
   Row,
   Stack,
   Spinner,
+  Modal,
 } from "react-bootstrap";
 import "./App.css";
 import Docxtemplater from "docxtemplater";
@@ -20,6 +22,7 @@ import { globalContext } from "./stateManagement/GlobalStore";
 import { AlertModal } from "./Steps/AlertModal";
 import { AppLeftNav } from "./components/AppLeftNav";
 import { AttachmentsReminder } from "./components/AttachmentsReminder";
+import { CheckComplete, TMCRError } from "./utilities/Utilities";
 
 function angularParser(tag: any) {
   tag = tag
@@ -47,6 +50,7 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [isChecking, setChecking] = useState(false);
   const [reminder, setReminder] = useState(false);
+  const [errors, setErrors] = useState([] as TMCRError[]);
 
   let submitButtonText;
   if (isLoading) {
@@ -73,10 +77,25 @@ function App() {
 
   function handleSubmit(e: any) {
     if (globalState.wizardStep === TMCRFinalStep) {
-      setLoading(true);
-      generateDocument();
+      let errors = CheckComplete(globalState);
+      if (errors.length === 0) {
+        setLoading(true);
+        generateDocument();
+      } else {
+        setErrors(errors);
+      }
     } else {
       dispatch({ type: "NEXT_STEP" });
+    }
+    e.preventDefault();
+  }
+
+  function handleAddTMCR(e: any) {
+    let errors = CheckComplete(globalState);
+    if (errors.length === 0) {
+      dispatch({ type: "ADD_TMCR" });
+    } else {
+      setErrors(errors);
     }
     e.preventDefault();
   }
@@ -140,10 +159,7 @@ function App() {
                 </Button>
                 {globalState.wizardStep === TMCRFinalStep &&
                   globalState.wizardOptions.length === 1 && (
-                    <Button
-                      type="button"
-                      onClick={(e) => dispatch({ type: "ADD_TMCR" })}
-                    >
+                    <Button type="button" onClick={handleAddTMCR}>
                       Add second TMCR
                     </Button>
                   )}
@@ -180,6 +196,25 @@ function App() {
                 </Button>
               </Stack>
               <AlertModal show={isChecking} close={handleAlert} />
+              <Modal
+                show={errors.length > 0}
+                onHide={() => setErrors([])}
+                centered
+                size="lg"
+              >
+                <Modal.Body>
+                  <Alert variant="danger">Incomplete data found!</Alert>
+                  Resolve the following issues:
+                  <ul>
+                    {errors.map((error, i: number) => (
+                      <li key={i}>
+                        {error.errortext} in TMCR {error.tmcrindex + 1}
+                      </li>
+                    ))}
+                  </ul>
+                  Click outside this box to continue
+                </Modal.Body>
+              </Modal>
             </Form>
           </Col>
         </Row>

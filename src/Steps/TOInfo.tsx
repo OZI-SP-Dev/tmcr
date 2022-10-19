@@ -98,7 +98,6 @@ export const TOInfo = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             type="text"
             value={
               globalState.wizardOptions[globalState.tmcrIndex]
@@ -138,7 +137,6 @@ export const TOInfo = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             type="text"
             value={globalState.rfp_contract}
             onChange={(e) =>
@@ -158,7 +156,6 @@ export const TOInfo = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             type="text"
             value={globalState.wizardOptions[globalState.tmcrIndex].clin}
             onChange={(e) =>
@@ -197,7 +194,6 @@ export const TOInfo = () => {
         </Form.Label>
         <Col>
           <Form.Select
-            required
             aria-label="Contract Type"
             value={
               globalState.wizardOptions[globalState.tmcrIndex].contract_type
@@ -235,10 +231,6 @@ export const TOInfo = () => {
           </Form.Label>
           <Col className="">
             <Form.Control
-              required={
-                globalState.wizardOptions[globalState.tmcrIndex]
-                  .contract_type === "Other"
-              }
               type="text"
               value={
                 globalState.wizardOptions[globalState.tmcrIndex]
