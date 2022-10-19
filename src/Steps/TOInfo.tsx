@@ -56,7 +56,7 @@ export const TOInfo = () => {
 
       <Form.Group as={Row} className="mb-3" controlId="programModSystemName">
         <Form.Label column sm={2}>
-          System Name
+          Program/System Name
         </Form.Label>
         <Col>
           <Form.Control

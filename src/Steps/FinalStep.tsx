@@ -6,13 +6,22 @@ export const FinalStep = () => {
   return (
     <div className="m-3">
       <h1>TMCR Template Steps Complete</h1>
-      {globalState.tmcrIndex === 0 &&
-        globalState.wizardOptions.length === 1 && (
-          <h3>
-            You may add a second TMCR, or generate a document based on your
-            inputs.
-          </h3>
-        )}
+      {globalState.tmcrIndex === 0 && globalState.wizardOptions.length === 1 && (
+        <ul className="text-start">
+          <li>
+            When TMCR is completed, document can be generated with “Generate
+            Document” selection
+          </li>
+          <li>
+            When TMCR is completed, second document (pdf/flight manual) can be
+            created with “Add second TMCR” selection
+          </li>
+          <li>
+            When finished with TMCR Template select “Close and Reset” to clear
+            all user input
+          </li>
+        </ul>
+      )}
       {globalState.tmcrIndex === 0 &&
         globalState.wizardOptions.length !== 1 && (
           <h3>Activate the second TMCR in order to generate your document.</h3>

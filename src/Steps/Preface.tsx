@@ -1,20 +1,24 @@
 export const Preface = () => {
   return (
     <div className="m-3">
-      <h1>Welcome to the TMCR Tool</h1>
-      <h3>Info about the site and how to use it...</h3>
+      <h1>Welcome to the Automated TMCR Tool</h1>
+      <br />
+      <h3 className="text-start">Select "Start TMCR"</h3>
       <ul className="text-start">
+        <li>Menu on left allows for review of any section</li>
         <li>
-          Menu on the left
-          <ul>
-            <li>jumping around</li>
-            <li>Color coding</li>
-          </ul>
+          Data entered within each Section is saved with the “Save and Continue”
+          selection
         </li>
-        <li>saving and coming back into the app...</li>
-        <li>Reset button</li>
-        <li>doc generation</li>
-        <li>other stuff?</li>
+        <li>“Reset” select will clear all user input</li>
+        <li>
+          When TMCR is completed, document can be generated with “Generate
+          Document” selection
+        </li>
+        <li>
+          When TMCR is completed, second document (pdf/flight manual) can
+          becreated with “Add second TMCR” selection
+        </li>
       </ul>
     </div>
   );
