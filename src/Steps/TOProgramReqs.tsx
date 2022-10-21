@@ -15,7 +15,6 @@ export const TOProgramReqs = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             type="text"
             value={globalState.toma_name}
             onChange={(e) =>
@@ -35,7 +34,6 @@ export const TOProgramReqs = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             type="text"
             value={globalState.toma_office_symbol}
             onChange={(e) =>
@@ -55,7 +53,6 @@ export const TOProgramReqs = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             as="textarea"
             value={globalState.toma_address}
             rows={3}
@@ -76,7 +73,6 @@ export const TOProgramReqs = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             type="text"
             value={globalState.toma_phone}
             onChange={(e) =>

@@ -8,10 +8,6 @@ export function CheckComplete(globalState: any) {
 
   /* TOInfo checks */
 
-  /* program_mod_system_name
-  /  Handled at the form level as this is a basic requirement
-  */
-
   //globalState.rfp_contract
   if (!globalState.rfp_contract) {
     errors.push({ errortext: "An RFP/Contract is required", tmcrindex: 0 });
@@ -49,6 +45,44 @@ export function CheckComplete(globalState: any) {
       });
     }
   });
+
+  /* TOMA checks */
+  if (
+    !globalState.toma_name ||
+    !globalState.toma_office_symbol ||
+    !globalState.toma_address ||
+    !globalState.toma_phone
+  ) {
+    errors.push({
+      errortext: "Complete TOMA details are required",
+      tmcrindex: 0,
+    });
+  }
+
+  /* TMSS Requirements */
+  // No required fields on this page
+
+  /* Table 2 */
+  // No required fields on this page
+
+  /* Configurable Requirements */
+  // No required fields on this page
+
+  /* Delivery Requirements */
+  globalState.wizardOptions.forEach((item: any, index: number) => {
+    /*Required fields for S1000D only */
+    if (item.tmcr_type === "S1000D") {
+      if (!item.delivery_address) {
+        errors.push({
+          errortext: "A Delivery Requirements delivery address must be entered",
+          tmcrindex: index,
+        });
+      }
+    }
+  });
+
+  /* Attachment 1 */
+  // No required fields on this page
 
   return errors;
 }

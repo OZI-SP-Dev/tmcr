@@ -217,7 +217,6 @@ export const Table4 = () => {
         </Form.Label>
         <Col>
           <Form.Control
-            required
             as="textarea"
             value={
               globalState.wizardOptions[globalState.tmcrIndex].delivery_address
