@@ -10,7 +10,6 @@ export const AppLeftNav = () => {
 
   return (
     <div className="sidebar-sticky bg-light">
-      <h5 className="mt-5">Jump to Section</h5>
       <div className="d-grid gap-2 m-2">
         {steps.map((element, i) => (
           <Button

@@ -22,14 +22,23 @@ export const FinalStep = () => {
           </li>
         </ul>
       )}
-      {globalState.tmcrIndex === 0 &&
-        globalState.wizardOptions.length !== 1 && (
-          <h3>Activate the second TMCR in order to generate your document.</h3>
-        )}
-      {globalState.tmcrIndex === 1 &&
-        globalState.wizardOptions.length !== 1 && (
-          <h3>You may generate a document based on your inputs.</h3>
-        )}
+      {globalState.tmcrIndex === 0 && globalState.wizardOptions.length > 1 && (
+        <ul className="text-start">
+          <li>Activate the second TMCR in order to generate your document.</li>
+        </ul>
+      )}
+      {globalState.tmcrIndex === 1 && globalState.wizardOptions.length !== 1 && (
+        <ul className="text-start">
+          <li>
+            When TMCR is completed, document can be generated with “Generate
+            Document” selection
+          </li>
+          <li>
+            When finished with TMCR Template select “Close and Reset” to clear
+            all user input
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
