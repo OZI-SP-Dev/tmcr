@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Form, Table } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
 
-export const Sec2B2 = () => {
+export const ConfigurableRequirements = () => {
   const { globalState, dispatch } = useContext(globalContext);
 
   if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type !== "S1000D") {
@@ -178,8 +178,9 @@ export const Sec2B2 = () => {
 
   return (
     <div className="m-3">
-      <h1>IETM Functionality Requirements</h1>
-      <h3>SECTION II: B-2 Configurable Requirements</h3>
+      <h1>Table 3</h1>
+      <h2>IETM Functionality Requirements</h2>
+      <h3>PART II: B-2 Configurable Requirements</h3>
       <br />
       <h5>Notes:</h5>
       <ul className="text-start">

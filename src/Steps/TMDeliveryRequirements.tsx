@@ -12,7 +12,7 @@ const defaultDelivery: Delivery = {
   cddvd: 0,
 };
 
-export const Table2Linear = () => {
+export const TMDeliveryRequirements = () => {
   const { globalState, dispatch } = useContext(globalContext);
 
   const addRow = () => {
@@ -85,7 +85,7 @@ export const Table2Linear = () => {
 
   return (
     <div className="m-3">
-      <h1>Table 2</h1>
+      <h1>Table 3</h1>
       <h3>TM Delivery Requirements</h3>
       <br />
       <ul className="text-start">

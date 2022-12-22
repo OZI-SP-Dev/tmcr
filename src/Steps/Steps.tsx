@@ -2,9 +2,9 @@ import { Preface } from "./Preface";
 import { TOInfo } from "./TOInfo";
 import { TOProgramReqs } from "./TOProgramReqs";
 import { TMSSReqs } from "./TMSSReqs";
-import { Table2Container } from "./Table2Container";
-import { Sec2B2 } from "./Sec2B2";
-import { Table4 } from "./Table4";
+import { Table2 } from "./Table2";
+import { ConfigurableRequirements } from "./ConfigurableRequirements";
+import { DeliveryRequirementsContainer } from "./DeliveryRequirementsContainer";
 import { Attachment1Graphics } from "./Attachment1Graphics";
 import { FinalStep } from "./FinalStep";
 
@@ -26,9 +26,9 @@ const WizardSteps = [
   <TOInfo />,
   <TOProgramReqs />,
   <TMSSReqs />,
-  <Table2Container />,
-  <Sec2B2 />,
-  <Table4 />,
+  <Table2 />,
+  <ConfigurableRequirements />,
+  <DeliveryRequirementsContainer />,
   <Attachment1Graphics />,
   <FinalStep />,
 ];

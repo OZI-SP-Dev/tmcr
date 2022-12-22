@@ -91,8 +91,8 @@ export const Table2 = () => {
 
   return (
     <div className="m-3">
-      <h1>TMCR Information</h1>
-      <h3>Table 2 Selections...</h3>
+      <h1>Table 2</h1>
+      <h3>Source Data/Updates</h3>
       <br />
       <h5>NOTES:</h5>
       <ul className="text-start">
