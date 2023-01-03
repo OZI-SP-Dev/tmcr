@@ -38,7 +38,7 @@ export const Preface = () => {
           Document” selection
         </li>
         <li>
-          When TMCR is completed, second document (pdf/flight manual) can be
+          When TMCR is completed, a second document (pdf/flight manual) can be
           created with “Add second TMCR” selection
         </li>
       </ul>
