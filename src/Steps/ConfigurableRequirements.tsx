@@ -186,9 +186,9 @@ export const ConfigurableRequirements = () => {
       <ul className="text-start">
         <li>
           <h5>
-            Section II configurable requirements are tailorable to the program’s
-            specific needs. Programs should evaluate and select the requirements
-            in this table.
+            Configurable requirements are tailorable to the program’s specific
+            needs. Programs should evaluate and select the requirements in this
+            table.
           </h5>
         </li>
       </ul>
