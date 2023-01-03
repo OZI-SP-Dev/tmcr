@@ -63,7 +63,7 @@ export const Table2 = () => {
 
   const deleteRow = (index: number) => {
     let table2 = [...globalState.wizardOptions[globalState.tmcrIndex].table2];
-    table2.splice(index, index + 1);
+    table2.splice(index, 1);
 
     const payload = { table2: table2 };
 

@@ -76,7 +76,7 @@ export const TMDeliveryRequirements = () => {
     let table2Linear = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table2linear,
     ];
-    table2Linear.splice(index, index + 1);
+    table2Linear.splice(index, 1);
 
     const payload = { table2linear: table2Linear };
 

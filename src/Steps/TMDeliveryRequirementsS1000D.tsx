@@ -76,7 +76,7 @@ export const TMDeliveryRequirementsS1000D = () => {
     let table4_custom = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table4_custom,
     ];
-    table4_custom.splice(index, index + 1);
+    table4_custom.splice(index, 1);
 
     const payload = { table4_custom: table4_custom };
 
