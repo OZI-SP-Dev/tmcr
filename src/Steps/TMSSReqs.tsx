@@ -282,7 +282,8 @@ export const TMSSReqs = () => {
 
   return (
     <div className="m-3">
-      <h1>TMSS Requirements</h1>
+      <h1>Table 1</h1>
+      <h2>TMSS Requirements</h2>
       <h3>Select which manuals will be required...</h3>
       <ol className="text-start">
         {TMSSReqs.map((element) => (

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { Button, Col, Form, InputGroup, Row, Table } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
 
-export const Table4 = () => {
+export const TMDeliveryRequirementsS1000D = () => {
   const { globalState, dispatch } = useContext(globalContext);
   useEffect(() => {
     let pdr_days: number | undefined =
@@ -23,16 +23,6 @@ export const Table4 = () => {
   let tableNumber = 4;
   if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "CDA") {
     tableNumber = 3;
-  }
-
-  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type !== "S1000D") {
-    return (
-      <div className="m-3">
-        <h1>IETM Functionality Requirements</h1>
-        <br />
-        <h3>No Table 4 for this TMCR type</h3>
-      </div>
-    );
   }
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +76,7 @@ export const Table4 = () => {
     let table4_custom = [
       ...globalState.wizardOptions[globalState.tmcrIndex].table4_custom,
     ];
-    table4_custom.splice(index, index + 1);
+    table4_custom.splice(index, 1);
 
     const payload = { table4_custom: table4_custom };
 
@@ -198,8 +188,8 @@ export const Table4 = () => {
 
   return (
     <div className="m-3">
-      <h1>IETM Functionality Requirements</h1>
-      <h3>Table {tableNumber} - TM Delivery Requirements</h3>
+      <h1>Table {tableNumber}</h1>
+      <h3>TM Delivery Requirements</h3>
       <br />
       <h5>NOTES:</h5>
       <ul className="text-start">
