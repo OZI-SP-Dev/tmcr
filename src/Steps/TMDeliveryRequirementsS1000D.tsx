@@ -110,7 +110,7 @@ export const TMDeliveryRequirementsS1000D = () => {
   const knownDeliverables = [
     {
       Id: "cdsb",
-      Text: "Common Source Data Base (CDSB)",
+      Text: "Common Source Data Base (CSDB)",
     },
     {
       Id: "brex",
