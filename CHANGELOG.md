@@ -10,6 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - (Keep your changes here until you have a release version)
 
+## [1.0.0] - 2023-05-03
+
+### Changed
+
+- Updated major version since this is released to customer
+
+### Removed
+
+- final_delivery_days input and references as this drove no output or workflows
+
 ## [0.2.1] - 2022-07-18
 
 ### Changed

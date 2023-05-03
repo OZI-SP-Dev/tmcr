@@ -14,7 +14,6 @@ export const TMDeliveryRequirementsS1000D = () => {
         process_review_days: 0,
         verification_days: 0,
         prepub_review_days: 0,
-        final_delivery_days: 0,
       };
       dispatch({ type: "MERGE_OPTION", payload });
     }
@@ -343,26 +342,7 @@ export const TMDeliveryRequirementsS1000D = () => {
                 <InputGroup.Text>Days</InputGroup.Text>
               </InputGroup>
             </td>
-            <td>
-              <InputGroup>
-                <Form.Control
-                  required
-                  type="number"
-                  min={minChecks.get("final_delivery")}
-                  value={
-                    globalState.wizardOptions[globalState.tmcrIndex]
-                      .final_delivery_days || 0
-                  }
-                  onChange={(e) =>
-                    dispatch({
-                      type: "MERGE_OPTION",
-                      payload: { final_delivery_days: e.target.value },
-                    })
-                  }
-                />
-                <InputGroup.Text>Days</InputGroup.Text>
-              </InputGroup>
-            </td>
+            <td></td>
             <td></td>
           </tr>
           <tr>
