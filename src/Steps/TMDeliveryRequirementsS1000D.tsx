@@ -14,7 +14,6 @@ export const TMDeliveryRequirementsS1000D = () => {
         process_review_days: 0,
         verification_days: 0,
         prepub_review_days: 0,
-        final_delivery_days: 0,
       };
       dispatch({ type: "MERGE_OPTION", payload });
     }
