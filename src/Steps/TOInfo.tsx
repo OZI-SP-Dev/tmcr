@@ -261,15 +261,15 @@ export const TOInfo = () => {
             <option></option>
             {(globalState.tmcrIndex === 0 ||
               globalState.wizardOptions[0].tmcr_type !== "S1000D") && (
-              <option value="S1000D">S1000D (IETM)</option>
+              <option value="S1000D">S1000D (IETM) — MIL-STD-3048B</option>
             )}
             {(globalState.tmcrIndex === 0 ||
               globalState.wizardOptions[0].tmcr_type !== "Linear") && (
-              <option value="Linear">Linear (SGML/XML)</option>
+              <option value="Linear">SGML/XML (PDF) — MIL-STD-38784</option>
             )}
             {(globalState.tmcrIndex === 0 ||
               globalState.wizardOptions[0].tmcr_type !== "CDA") && (
-              <option value="CDA">CDA (i.e., CDA/COTS</option>
+              <option value="CDA">CDA (i.e., CDA/COTS) — MIL-PFR-32216</option>
             )}
           </Form.Select>
         </Col>
