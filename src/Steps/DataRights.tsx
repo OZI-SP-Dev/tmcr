@@ -40,7 +40,7 @@ export const DataRights = () => {
         "Specifically Negotiated License Rights" && (
         <Form.Group as={Row} className="mb-3" controlId="specialDataRights">
           <Form.Label column sm={2}>
-            Additional Information on Specifically Negotiated Rights
+            Additional Information on Specifically Negotiated License Rights
           </Form.Label>
           <Col>
             <Form.Control
