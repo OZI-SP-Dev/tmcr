@@ -1,5 +1,12 @@
-import { ChangeEvent, useContext, useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { ChangeEvent, ReactNode, useContext, useState } from "react";
+import {
+  Badge,
+  Col,
+  Form,
+  OverlayTrigger,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
 import { NewAcqModal } from "./NewAcqModal";
 
@@ -49,6 +56,14 @@ export const TOInfo = () => {
     setShowModal(false);
   };
 
+  const MyTooltip = ({ id, text }: { id: string; text: string }) => (
+    <OverlayTrigger overlay={<Tooltip id={id}>{text}</Tooltip>}>
+      <Badge pill bg="secondary" style={{ float: "right" }}>
+        ?
+      </Badge>
+    </OverlayTrigger>
+  );
+
   return (
     <div className="m-3">
       <h1>TMCR Information</h1>
@@ -57,6 +72,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="programModSystemName">
         <Form.Label column sm={2}>
           Program/System Name
+          <MyTooltip
+            id="programModSystemNameTT"
+            text="Enter Program/System Name associated with TMCR"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -77,6 +96,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="attachment">
         <Form.Label column sm={2}>
           Attachment
+          <MyTooltip
+            id="attachmentTT"
+            text="Mark as number 1, unless multiple TMCRs are required (coordinate with Contracting Officer)"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -95,6 +118,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="cdrlSequenceNumber">
         <Form.Label column sm={2}>
           CDRL Sequence Number
+          <MyTooltip
+            id="cdrlSequenceNumberTT"
+            text="See DoD FAR Supplement Subpart 4.71 for proper numbering (DATA ITEM NO Block 1 of CDRL)"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -116,6 +143,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="exhibit">
         <Form.Label column sm={2}>
           Exhibit
+          <MyTooltip
+            id="exhibitTT"
+            text="Enter the Contract Exhibit Letter assigned to the CDRL (Block B. EXHIBIT)"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -134,6 +165,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="rfp_contract">
         <Form.Label column sm={2}>
           RFP/Contract
+          <MyTooltip
+            id="rfp_contractTT"
+            text="Enter RFP and/or Contract Number (Block E CONTRACT/PR NO.) of CDRL"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -153,6 +188,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="clin">
         <Form.Label column sm={2}>
           CLIN
+          <MyTooltip
+            id="clinTT"
+            text="Enter CLIN associated with CDRL (Block A CONTRACT LINE ITEM NO.)"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -171,6 +210,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="tmcrDate">
         <Form.Label column sm={2}>
           Date
+          <MyTooltip
+            id="tmcrDateTT"
+            text="Use drop down to select date (if necessary, date can be adjusted after the TMCR is generated)"
+          />
         </Form.Label>
         <Col>
           <Form.Control
@@ -191,6 +234,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="contractType">
         <Form.Label column sm={2}>
           Contract Type
+          <MyTooltip
+            id="contractTypeTT"
+            text="Use drop down menu to select type of contract associated with TMCR/CDRL"
+          />
         </Form.Label>
         <Col>
           <Form.Select
@@ -250,6 +297,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="tmcrType">
         <Form.Label column sm={2}>
           TMCR Type
+          <MyTooltip
+            id="tmcrTypeTT"
+            text="Use drop down menu to select type of TMCR required"
+          />
         </Form.Label>
         <Col>
           <Form.Select
@@ -278,6 +329,10 @@ export const TOInfo = () => {
       <Form.Group as={Row} className="mb-3" controlId="newRevision">
         <Form.Label column sm={2}>
           New Acquisition Or Revision (Mod)
+          <MyTooltip
+            id="newRevisionTT"
+            text="Select contract action for this TMCR"
+          />
         </Form.Label>
         <Col className="text-start">
           <Form.Check
