@@ -7,11 +7,13 @@ import { ConfigurableRequirements } from "./ConfigurableRequirements";
 import { DeliveryRequirementsContainer } from "./DeliveryRequirementsContainer";
 import { Attachment1Graphics } from "./Attachment1Graphics";
 import { FinalStep } from "./FinalStep";
+import { DataRights } from "./DataRights";
 
 export const TMCRStepNames = [
   "Home",
   "TMCR Information",
   "TOMA Details",
+  "Data Rights",
   "TMSS Requirements",
   "Table 2",
   "Configurable Requirements",
@@ -25,6 +27,7 @@ const WizardSteps = [
   <Preface />,
   <TOInfo />,
   <TOProgramReqs />,
+  <DataRights />,
   <TMSSReqs />,
   <Table2 />,
   <ConfigurableRequirements />,

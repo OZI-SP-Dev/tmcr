@@ -10,6 +10,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - (Keep your changes here until you have a release version)
 
+## [1.0.1] - 2023-06-20
+
+### Added
+
+- Added Data Rights step/page
+- Added Tooltips to TOInfo page
+
+### Changed
+
+- Updated docx template to include text based on new Data Rights selections
+- Updated TMCR Type text to include MIL spec documents
+
 ## [1.0.0] - 2023-05-03
 
 ### Changed
