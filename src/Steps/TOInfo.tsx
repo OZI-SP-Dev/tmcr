@@ -312,7 +312,7 @@ export const TOInfo = () => {
             <option></option>
             {(globalState.tmcrIndex === 0 ||
               globalState.wizardOptions[0].tmcr_type !== "S1000D") && (
-              <option value="S1000D">S1000D (IETM) — MIL-STD-3048B</option>
+              <option value="S1000D">S1000D (IETM) — MIL-STD-3048</option>
             )}
             {(globalState.tmcrIndex === 0 ||
               globalState.wizardOptions[0].tmcr_type !== "Linear") && (
