@@ -23,6 +23,7 @@ import { AlertModal } from "./Steps/AlertModal";
 import { AppLeftNav } from "./components/AppLeftNav";
 import { AttachmentsReminder } from "./components/AttachmentsReminder";
 import { CheckComplete, TMCRError } from "./utilities/Utilities";
+import { trackDocument } from "./components/DocumentTracker/DocumentTracker";
 
 function angularParser(tag: any) {
   tag = tag
@@ -130,6 +131,7 @@ function App() {
           compression: "DEFLATE",
         }); //Output the document using Data-URI
         saveAs(out, globalState.program_mod_system_name + "_template.docx");
+        trackDocument(globalState.program_mod_system_name);
         setLoading(false);
         setReminder(true);
       }
