@@ -11,7 +11,7 @@ const sp = spfi().using(SPBrowser({ baseUrl: webUrl }));
 export const trackDocument = async (Title: string) => {
   if (process.env.NODE_ENV !== "development") {
     try {
-      await sp.web.lists.getByTitle("DocumentTracker").items.add({ Title });
+      await sp.web.lists.getByTitle("TMCRTracker").items.add({ Title });
     } catch (error) {
       console.error(error);
     }
