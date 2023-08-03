@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - (Keep your changes here until you have a release version)
 
+## [1.1.0] - 2023-07-26
+
+### Added
+
+- Save system name to SP List when generating document (to be used for metrics)
+
 ## [1.0.1] - 2023-06-20
 
 ### Added
