@@ -5,11 +5,10 @@ import "@pnp/sp/items";
 
 declare var _spPageContextInfo: any;
 
-const webUrl = _spPageContextInfo.webAbsoluteUrl;
-const sp = spfi().using(SPBrowser({ baseUrl: webUrl }));
-
 export const trackDocument = async (Title: string) => {
   if (process.env.NODE_ENV !== "development") {
+    const webUrl = _spPageContextInfo.webAbsoluteUrl;
+    const sp = spfi().using(SPBrowser({ baseUrl: webUrl }));
     try {
       await sp.web.lists.getByTitle("TMCRTracker").items.add({ Title });
     } catch (error) {
