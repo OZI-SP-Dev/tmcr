@@ -225,7 +225,33 @@ export const TMDeliveryRequirementsS1000D = () => {
         <thead>
           <tr>
             <th></th>
-            <th colSpan={6}>Number of days data required prior to event</th>
+            <th colSpan={6}>
+              <InputGroup>
+                <InputGroup.Text>Number of</InputGroup.Text>
+                <Form.Select
+                  style={{ maxWidth: "8rem" }}
+                  required
+                  aria-label="Type of days"
+                  value={
+                    globalState.wizardOptions[globalState.tmcrIndex]
+                      .typeof_review_days
+                  }
+                  onChange={(e) =>
+                    dispatch({
+                      type: "MERGE_OPTION",
+                      payload: { typeof_review_days: e.target.value },
+                    })
+                  }
+                >
+                  <option></option>
+                  <option value="business">business</option>
+                  <option value="calendar">calendar</option>
+                </Form.Select>
+                <InputGroup.Text>
+                  days data required prior to event
+                </InputGroup.Text>
+              </InputGroup>
+            </th>
             <th style={{ minWidth: "8em" }}></th>
           </tr>
           <tr>
