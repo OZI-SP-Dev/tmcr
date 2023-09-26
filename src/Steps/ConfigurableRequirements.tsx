@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Form, Table } from "react-bootstrap";
 import { globalContext } from "../stateManagement/GlobalStore";
+import { S1000DHardRequirements } from "./S1000DHardRequirements";
 
 export const ConfigurableRequirements = () => {
   const { globalState, dispatch } = useContext(globalContext);
@@ -180,6 +181,8 @@ export const ConfigurableRequirements = () => {
     <div className="m-3">
       <h1>Table 3</h1>
       <h2>IETM Functionality Requirements</h2>
+      <h3>PART I: B-1 Mandatory Requirements</h3>
+      <S1000DHardRequirements />
       <h3>PART II: B-2 Configurable Requirements</h3>
       <br />
       <h5>Notes:</h5>
