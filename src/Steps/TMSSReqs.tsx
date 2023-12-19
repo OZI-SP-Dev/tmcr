@@ -6,7 +6,7 @@ import "./TMSSReqs.css";
 export const TMSSReqs = () => {
   const { globalState, dispatch } = useContext(globalContext);
 
-  const TMSSReqs = [
+  let TMSSReqs = [
     {
       name: "Inspection TOs (MIL-DTL-5096)",
       manuals: [
@@ -242,18 +242,21 @@ export const TMSSReqs = () => {
   const moreTMSSReqs = [
     {
       name: "Aircraft Cross-servicing Guide (MIL-DTL-22202)",
+      manuals: [{ name: "IETM", id: "tmss_19_a" }],
+    },
+  ];
+
+  if (globalState.wizardOptions[globalState.tmcrIndex].tmcr_type === "CDA") {
+    TMSSReqs.push({
+      name: "Commercial Manuals (Evaluate according to MIL-PRF-32216)",
       manuals: [
         {
           name: "Commercial Manuals (Evaluate according to MIL-PRF-32216)",
           id: "tmss_18_a",
         },
       ],
-    },
-    {
-      name: "Aircraft Cross-servicing Guide (MIL-DTL-22202)",
-      manuals: [{ name: "IETM", id: "tmss_19_a" }],
-    },
-  ];
+    });
+  }
 
   useEffect(() => {
     // Check if var has been initialized, if not initialize them all
