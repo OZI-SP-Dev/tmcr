@@ -6,7 +6,7 @@ import "./TMSSReqs.css";
 export const TMSSReqs = () => {
   const { globalState, dispatch } = useContext(globalContext);
 
-  let TMSSReqs = [
+  const TMSSReqs = [
     {
       name: "Inspection TOs (MIL-DTL-5096)",
       manuals: [
