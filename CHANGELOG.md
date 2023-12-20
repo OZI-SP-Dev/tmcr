@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - (Keep your changes here until you have a release version)
 
+## [1.1.1] - 2023-12-19
+
+### Changed
+
+- Add Commercial Manuals as an option to the TMSS Requirements (Table 1) -- only available on CDA TMCR types
+
 ## [1.1.0] - 2023-07-26
 
 ### Added

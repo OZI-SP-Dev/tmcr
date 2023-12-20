@@ -17,6 +17,15 @@ export const TOInfo = () => {
   const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     let payload: any = {};
 
+    // If it is not a CDA TMCR type and there are TMSS Reqs selected that are only for CDA, then clear them
+    if (e.target.value !== "CDA") {
+      let tmss_18_a: boolean | undefined =
+        globalState.wizardOptions[globalState.tmcrIndex].tmss_18_a;
+      if (tmss_18_a) {
+        payload.tmss_18_a = false;
+      }
+    }
+
     // Force re-select of subtype and ctr maintained TOs when main type changes
     payload.new_revision = "";
     payload.ctr_maintained_conversion_tos = false;
