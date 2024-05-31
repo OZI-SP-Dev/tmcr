@@ -24,6 +24,26 @@ export const Preface = () => {
         https://usaf.dps.mil/teams/Hill/USAFTOMANAGEMENT/SitePages/LP-Training.aspx
       </a>
       <br />
+      S1000D Decision Point Tool:
+      <br />
+      <a
+        href="https://techdata.wpafb.af.mil/TMSS/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        https://techdata.wpafb.af.mil/TMSS/
+      </a>
+      <br />
+      TMSS Tailoring Tool:
+      <br />
+      <a
+        href="https://techdata.wpafb.af.mil/TMSS/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        https://techdata.wpafb.af.mil/TMSS/
+      </a>
+      <br />
       <br />
       <h3 className="text-start">Select "Start TMCR" to get started</h3>
       <ul className="text-start">

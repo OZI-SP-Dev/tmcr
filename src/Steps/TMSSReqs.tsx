@@ -14,16 +14,8 @@ export const TMSSReqs = () => {
           name: "Inspection and Maintenance Requirements (-6) Manual",
           id: "tmss_1_a",
         },
-        {
-          name: "Acceptance and Functional Check Flight (FCF) Procedures (-6CF) Manual",
-          id: "tmss_1_b",
-        },
-        {
-          name: "Acceptance and Functional Check Flight (-6CL) Checklist",
-          id: "tmss_1_c",
-        },
-        { name: "Inspection Workcards (-6WC)", id: "tmss_1_d" },
-        { name: "Maintenance/Operations Checklists", id: "tmss_1_e" },
+        { name: "Inspection Workcards (-6WC)", id: "tmss_1_b" },
+        { name: "Maintenance/Operations Checklists", id: "tmss_1_c" },
       ],
     },
     {
@@ -76,6 +68,14 @@ export const TMSSReqs = () => {
               name: "Non-nuclear Weapon Delivery Source Data Packages",
               id: "tmss_3_a_14",
             },
+            {
+              name: "Acceptance and Functional Check Flight (FCF) Procedures (-6CF) Manual",
+              id: "tmss_3_a_15",
+            },
+            {
+              name: "Acceptance and Functional Check Flight (-6CL) Checklist",
+              id: "tmss_3_a_16",
+            },
           ],
         },
         {
@@ -84,6 +84,10 @@ export const TMSSReqs = () => {
           manuals: [
             { name: "Loading Data Manual", id: "tmss_3_b_1" },
             { name: "Sample Basic Weight Checklists", id: "tmss_3_b_2" },
+            {
+              name: "Combined Sample Basic Weight Checklists and Loading Data Manual",
+              id: "tmss_3_b_3",
+            },
           ],
         },
       ],
@@ -109,20 +113,29 @@ export const TMSSReqs = () => {
         { name: "Non-nuclear Munitions Basic Information", id: "tmss_7_c" },
         { name: "Non-nuclear Loading Procedures", id: "tmss_7_d" },
         {
-          name: "Non-nuclear Munitions Loading Standard Data Packages (SDPs)",
+          name: "Integrated Combat Turnaround Procedures Manual",
           id: "tmss_7_e",
         },
-        { name: "Loading Procedures Checklist", id: "tmss_7_f" },
-        { name: "Single Loading Procedures Checklist", id: "tmss_7_g" },
-        { name: "Integrated Loading Procedures Checklists", id: "tmss_7_h" },
-        { name: "Family Group Loading Procedures Checklist", id: "tmss_7_i" },
+        {
+          name: "Non-nuclear Munitions Loading Standard Data Packages (SDPs)",
+          id: "tmss_7_f",
+        },
+        { name: "Loading Procedures Checklist", id: "tmss_7_g" },
+        { name: "Single Loading Procedures Checklist", id: "tmss_7_h" },
+        { name: "Integrated Loading Procedures Checklists", id: "tmss_7_i" },
+        { name: "Family Group Loading Procedures Checklist", id: "tmss_7_j" },
         {
           name: "Nuclear Weapons Loading Procedure Checklists",
-          id: "tmss_7_j",
+          id: "tmss_7_k",
         },
-        { name: "Functional Check Procedures Checklist", id: "tmss_7_k" },
-        { name: "NATO Stage B Cross-Servicing Checklists", id: "tmss_7_l" },
-        { name: "End of Runway (EOR) Procedures Checklist", id: "tmss_7_m" },
+        { name: "Functional Check Procedures Checklist", id: "tmss_7_l" },
+        {
+          name: "Integrated Combat Turnaround Procedures Checklist",
+          id: "tmss_7_m",
+        },
+        { name: "NATO Stage B Cross-Servicing Checklists", id: "tmss_7_n" },
+        { name: "End of Runway (EOR) Procedures Checklist", id: "tmss_7_o" },
+        { name: "Smart Weapons Load Checklist", id: "tmss_7_p" },
       ],
     },
     {
