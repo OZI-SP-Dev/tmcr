@@ -329,7 +329,7 @@ export const TOInfo = () => {
             )}
             {(globalState.tmcrIndex === 0 ||
               globalState.wizardOptions[0].tmcr_type !== "CDA") && (
-              <option value="CDA">CDA (i.e., CDA/COTS) — MIL-PFR-32216</option>
+              <option value="CDA">CDA (i.e., CDA/COTS) — MIL-PRF-32216</option>
             )}
           </Form.Select>
         </Col>
