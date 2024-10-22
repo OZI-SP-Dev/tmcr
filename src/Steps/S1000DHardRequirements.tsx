@@ -15,7 +15,9 @@ export const S1000DHardRequirements = () => {
 
       <Modal size="xl" scrollable show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Part I: B-1 Mandatory Requirements</Modal.Title>
+          <Modal.Title>
+            Part I: B-1 Mandatory Functionality Requirements
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Table striped bordered hover responsive>
@@ -250,6 +252,17 @@ export const S1000DHardRequirements = () => {
                   The IETM shall display appropriately authored change markers
                   in the technical data and provide users with the capability to
                   toggle the display of change markers on/off.
+                </td>
+              </tr>
+              <tr>
+                <td>User Operation Mode</td>
+                <td className="text-start" style={{ whiteSpace: "pre-line" }}>
+                  Connected mode
+                  <br />
+                  The IETM shall be able to access the network and/or the CSDB
+                  wirelessly during use. This functionality is necessary for
+                  integrating with external applications such as parts ordering
+                  or maintenance data collections.
                 </td>
               </tr>
               <tr>

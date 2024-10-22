@@ -175,23 +175,71 @@ export const ConfigurableRequirements = () => {
       Requirement:
         "Graphical navigation\nThe IETM shall provide users the capability to navigate the technical data via graphical representations of the product's system/subsystem breakdown. Heavy use of hotspotting is required on the graphics. For example, from a graphical overview of the aircraft, the user selects a wing. A graphical overview of the wing is presented. The user then selects the flaps. A graphical overview of the flaps is presented. The user selects the actuator. Information on the actuator is presented.",
     },
+    {
+      Id: "sec2b2_history_nav",
+      Category: "Navigation and Tracking",
+      Requirement:
+        "History of traversed links\nThe IETM shall provide the capability to display to the user a history of all links traversed by the user.",
+    },
+    {
+      Id: "sec2b2_bookmarks_nav",
+      Category: "Navigation and Tracking",
+      Requirement:
+        "User creation of bookmarks\nThe IETM shall provide the capability to allow the user to create their own bookmarks or navigational links to specific locations in the data. This would require login functionality as the bookmarks are tied to the specific user login.",
+    },
+    {
+      Id: "sec2b2_voice_nav",
+      Category: "Navigation and Tracking",
+      Requirement:
+        "Voice activated commands\nThe IETM shall provide users the capability to navigate through the technical content via voice commands.",
+    },
+    {
+      Id: "sec2b2_animated_spec",
+      Category: "Special Content",
+      Requirement:
+        "Animated graphics support\nThe IETM shall have the capability to display animated graphic contained within the technical content for the user.",
+    },
+    {
+      Id: "sec2b2_audio_spec",
+      Category: "Special Content",
+      Requirement:
+        "Audio file support\nThe IETM shall have the capability to play audio files contained within the technical content for the user.",
+    },
+    {
+      Id: "sec2b2_training_spec",
+      Category: "Special Content",
+      Requirement:
+        "Link to external training\nThe IETM shall include built-in links to external training sites for relevant maintainer/operator training courses/data.",
+    },
+    {
+      Id: "sec2b2_video_spec",
+      Category: "Special Content",
+      Requirement:
+        "Motion video file support\nThe IETM shall have the capability to play video files contained within the technical content for the user.",
+    },
+    {
+      Id: "sec2b2_warning_spec",
+      Category: "Special Content",
+      Requirement:
+        "Warning and caution acknowledgement\nThe IETM shall require acknowledgement from the user for each warning and caution encountered in the technical data. The user must acknowledge the warning or caution via a button or dialog prompt before being allowed to proceed.",
+    },
   ];
 
   return (
     <div className="m-3">
       <h1>Table 3</h1>
       <h2>IETM Functionality Requirements</h2>
-      <h3>PART I: B-1 Mandatory Requirements</h3>
+      <h3>PART I: B-1 Mandatory Functionality Requirements</h3>
       <S1000DHardRequirements />
-      <h3>PART II: B-2 Configurable Requirements</h3>
+      <h3>PART II: B-2 Optional Functionality Requirements</h3>
       <br />
       <h5>Notes:</h5>
       <ul className="text-start">
         <li>
           <h5>
-            Configurable requirements are tailorable to the program’s specific
-            needs. Programs should evaluate and select the requirements in this
-            table.
+            Optional functionality requirements are tailorable to the program’s
+            specific needs. Programs should evaluate and select the requirements
+            in this table.
           </h5>
         </li>
       </ul>
