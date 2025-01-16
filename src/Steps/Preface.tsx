@@ -2,6 +2,10 @@ export const Preface = () => {
   return (
     <div className="m-3">
       <h1>Welcome to the Automated TMCR Tool</h1>
+      <small>
+        TMCR Template Revised <time dateTime="2025-01-16">2025-01-16</time>
+      </small>
+      <br />
       <br />
       <h3 className="text-start">
         Programs are highly encouraged to use the{" "}

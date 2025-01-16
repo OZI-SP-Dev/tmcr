@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - (Keep your changes here until you have a release version)
 
+## [1.1.4] - 2025-01-16
+
+### Added
+
+- Template/App Revised Dates
+
 ## [1.1.3] - 2024-10-18
 
 ### Changed
